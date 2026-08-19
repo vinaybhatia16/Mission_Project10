@@ -1,0 +1,13 @@
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaPostfixProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.javaChainProposalCategory\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.util.Date"><rhs name\="java.sql.Timestamp"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.sql.Timestamp"/></lhs><lhs name\="java.sql.Timestamp"><rhs name\="java.sql.Timestamp"/></lhs><lhs name\="java.lang.Enum"><rhs name\="org.springframework.transaction.annotation.Propagation"/></lhs><lhs name\="java.lang.constant.Constable"><rhs name\="org.springframework.transaction.annotation.Propagation"/></lhs><lhs name\="com.rays.common.UserContext"><rhs name\="com.rays.common.UserContext"/></lhs><lhs name\="com.rays.common.BaseDTO"><rhs name\="com.rays.dto.UserDTO"/><rhs name\="com.rays.dto.RoleDTO"/><rhs name\="com.rays.dto.CollegeDTO"/><rhs name\="com.rays.dto.MarksheetDTO"/><rhs name\="com.rays.dto.StudentDTO"/><rhs name\="com.rays.dto.CourseDTO"/><rhs name\="com.rays.dto.SubjectDTO"/></lhs><lhs name\="com.rays.common.DropdownList"><rhs name\="com.rays.dto.UserDTO"/><rhs name\="com.rays.dto.RoleDTO"/><rhs name\="com.rays.dto.CollegeDTO"/><rhs name\="com.rays.dto.MarksheetDTO"/><rhs name\="com.rays.dto.StudentDTO"/><rhs name\="com.rays.dto.CourseDTO"/><rhs name\="com.rays.dto.SubjectDTO"/></lhs><lhs name\="com.rays.dto.UserDTO"><rhs name\="com.rays.dto.UserDTO"/></lhs><lhs name\="com.rays.common.ORSResponse"><rhs name\="com.rays.common.ORSResponse"/></lhs><lhs name\="java.util.Map"><rhs name\="java.util.HashMap"/></lhs><lhs name\="com.rays.common.BaseForm"><rhs name\="com.rays.form.UserForm"/><rhs name\="com.rays.form.CollegeForm"/><rhs name\="com.rays.form.StudentForm"/><rhs name\="com.rays.form.MarksheetForm"/><rhs name\="com.rays.form.CourseForm"/><rhs name\="com.rays.form.SubjectForm"/></lhs><lhs name\="com.rays.dto.RoleDTO"><rhs name\="com.rays.dto.RoleDTO"/></lhs><lhs name\="com.rays.dto.CollegeDTO"><rhs name\="com.rays.dto.CollegeDTO"/></lhs><lhs name\="com.rays.dto.StudentDTO"><rhs name\="com.rays.dto.StudentDTO"/></lhs></history>
+content_assist_number_of_computers=20
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=23
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

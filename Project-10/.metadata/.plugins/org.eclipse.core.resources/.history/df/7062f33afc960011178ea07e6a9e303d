@@ -1,0 +1,30 @@
+package com.rays.common;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
+public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
+	
+	@PersistenceContext
+	protected EntityManager entityManager;
+
+	
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
+	public abstract Class<T> getDTOClass();
+	
+	protected abstract List<Predicate> getWhereClause(T dto, CriteriaBuilder builder, Root<T> qRoot);
+
+	protected void populate(T dto, UserContext userContext) {
+	}
+
+	
+	
+}
