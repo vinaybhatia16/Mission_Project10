@@ -44,18 +44,23 @@ export class BaseCtl implements OnInit {
     }
 
     ngOnInit(): void {
+        console.log("ngOnInit called");
         this.preload();
     }
 
     preload() {
+        console.log("PRELOAD METHOD CALLED");
         var _self = this;
         this.serviceLocator.httpService.get(_self.api.preload, function (res: any) {
             if (res.success) {
+                console.log(res.result)
                 _self.form.preload = res.result;
+                console.log(_self.form.preload.roleList)
             }
         });
     }
 
+    
     submit() {
         var _self = this;
         this.serviceLocator.httpService.post(this.api.save, this.form.data, function (res: any) {
@@ -70,6 +75,57 @@ export class BaseCtl implements OnInit {
                 if (res.result.inputerror) {
                     _self.form.inputerror = res.result.inputerror;
                 }
+                _self.form.message = res.result.message;
+            }
+        });
+    }
+    search() {
+        var _self = this;
+        this.serviceLocator.httpService.post(_self.api.search + "/" + _self.form.pageNo, _self.form.searchParams, function (res: any) {
+            _self.form.message = '';
+            _self.form.list = [];
+            if (res.success) {
+                _self.form.error = false;
+                _self.form.list = res.result.data;
+                _self.form.nextListSize = res.result.nextListSize;
+            } else {
+                _self.form.error = true;
+                _self.form.message = res.result.message;
+            }
+        });
+    }
+
+    deleteMany(id: any) {
+        var _self = this;
+        this.serviceLocator.httpService.post(_self.api.deleteMany + "/" + id, this.form.searchParams, function (res: any) {
+            _self.form.message = '';
+            _self.form.list = [];
+            if (res.success) {
+                _self.form.error = false;
+                _self.form.message = res.result.message;
+                _self.form.list = res.result.data;
+                _self.form.nextListSize = res.result.nextListSize;
+            } else {
+                _self.form.error = true;
+                _self.form.message = res.result.message;
+            }
+        });
+    }
+    
+    forward(page: any) {
+        this.serviceLocator.forward(page);
+    }
+
+    reset() {
+        location.reload();
+    }
+    display() {
+        var _self = this;
+        this.serviceLocator.httpService.get(_self.api.get + "/" + _self.form.data.id, function (res: any) {
+            if (res.success) {
+                _self.form.data = res.result.data;
+            } else {
+                _self.form.error = true;
                 _self.form.message = res.result.message;
             }
         });

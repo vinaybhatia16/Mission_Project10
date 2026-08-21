@@ -15,4 +15,5 @@ export class UserComponent extends BaseCtl {
     super(locator.endpoints.USER, locator, route);
   }
 
+
 }

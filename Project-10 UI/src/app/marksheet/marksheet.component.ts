@@ -12,7 +12,11 @@ import { ActivatedRoute } from '@angular/router';
 export class MarksheetComponent extends BaseCtl {
 
   constructor(public locator: ServiceLocatorService, route: ActivatedRoute) {
+
     super(locator.endpoints.MARKSHEET, locator, route);
+    
   }
+
+  
 
 }

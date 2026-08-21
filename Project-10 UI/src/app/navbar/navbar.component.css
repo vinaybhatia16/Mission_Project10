@@ -1,0 +1,84 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #212529;
+    padding: 0 30px;
+
+    min-height: 65px;
+    font-family: Arial, sans-serif;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+
+.logo a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-links a {
+    color: #dddddd;
+
+    text-decoration: none;
+
+    padding: 10px 12px;
+
+    border-radius: 5px;
+
+    transition: 0.3s;
+
+    font-size: 14px;
+}
+
+/* Hover Effect */
+
+.nav-links a:hover {
+    background-color: #495057;
+    color: white;
+}
+
+/* Active Route */
+
+.nav-links a.active {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* User Information */
+
+.user-info {
+    color: white;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}

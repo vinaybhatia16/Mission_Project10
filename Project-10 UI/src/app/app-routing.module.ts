@@ -9,6 +9,17 @@ import { FacultyComponent } from './faculty/faculty.component';
 import { MarksheetComponent } from './marksheet/marksheet.component';
 import { TimetableComponent } from './timetable/timetable.component';
 import { StudentComponent } from './student/student.component';
+import { CollegeListComponent } from './college/collegelist.component';
+import { CourseListComponent } from './course/courselist.component';
+import { FacultyListComponent } from './faculty/facultylist.component';
+import { MarksheetListComponent } from './marksheet/marksheetlist.component';
+import { RoleListComponent } from './role/rolelist.component';
+import { StudentListComponent } from './student/studentlist.component';
+import { SubjectListComponent } from './subject/subjectlist.component';
+import { TimetableListComponent } from './timetable/timetablelist.component';
+import { UserListComponent } from './user/userlist.component';
+
+
 
 const routes: Routes = [
   {
@@ -20,7 +31,7 @@ const routes: Routes = [
     path: 'user',
     component: UserComponent
   },
-  
+
   {
     path: 'role',
     component: RoleComponent
@@ -28,6 +39,16 @@ const routes: Routes = [
   {
     path: 'college',
     component: CollegeComponent
+  },
+
+  {
+    path: 'college/:id',
+    component: CollegeComponent
+  },
+  
+  {
+    path: 'collegelist',
+    component: CollegeListComponent
   },
   {
     path: 'course',
@@ -52,6 +73,69 @@ const routes: Routes = [
   {
     path: 'student',
     component: StudentComponent
+  }, {
+    path: 'course/:id',
+    component: CourseComponent
+  },
+  {
+    path: 'courselist',
+    component: CourseListComponent
+  },
+  {
+    path: 'faculty/:id',
+    component: FacultyComponent
+  },
+  {
+    path: 'facultylist',
+    component: FacultyListComponent
+  },
+  {
+    path: 'marksheet/:id',
+    component: MarksheetComponent
+  },
+  {
+    path: 'marksheetlist',
+    component: MarksheetListComponent
+  },
+  {
+    path: 'role/:id',
+    component: RoleComponent
+  },
+  {
+    path: 'rolelist',
+    component: RoleListComponent
+  },
+  {
+    path: 'student/:id',
+    component: StudentComponent
+  },
+  {
+    path: 'studentlist',
+    component: StudentListComponent
+  },
+  {
+    path: 'subject/:id',
+    component: SubjectComponent
+  },
+  {
+    path: 'subjectlist',
+    component: SubjectListComponent
+  },
+  {
+    path: 'timetable/:id',
+    component: TimetableComponent
+  },
+  {
+    path: 'timetablelist',
+    component: TimetableListComponent
+  },
+  {
+    path: 'user/:id',
+    component: UserComponent
+  },
+  {
+    path: 'userlist',
+    component: UserListComponent
   }
 ];
 

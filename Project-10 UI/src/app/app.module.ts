@@ -20,6 +20,16 @@ import { AuthServiceService } from './auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { RoleListComponent } from './role/rolelist.component';
+import { UserListComponent} from './user/userlist.component';
+import { SubjectListComponent } from './subject/subjectlist.component';
+import { MarksheetListComponent } from './marksheet/marksheetlist.component';
+import { CourseListComponent } from './course/courselist.component';
+import { CollegeListComponent } from './college/collegelist.component';
+import { FacultyListComponent } from './faculty/facultylist.component';
+import { StudentListComponent } from './student/studentlist.component';
+import { TimetableListComponent } from './timetable/timetablelist.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +44,17 @@ import { FooterComponent } from './footer/footer.component';
     TimetableComponent,
     FacultyComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    RoleListComponent,
+    UserListComponent,
+    TimetableListComponent,
+    SubjectListComponent,
+    StudentListComponent,
+    MarksheetListComponent,
+    CourseListComponent,
+    CollegeListComponent,
+    FacultyListComponent,
+    FacultyListComponent
   ],
   imports: [
     BrowserModule,
