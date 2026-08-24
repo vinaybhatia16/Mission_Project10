@@ -18,6 +18,8 @@ import { StudentListComponent } from './student/studentlist.component';
 import { SubjectListComponent } from './subject/subjectlist.component';
 import { TimetableListComponent } from './timetable/timetablelist.component';
 import { UserListComponent } from './user/userlist.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -136,6 +138,19 @@ const routes: Routes = [
   {
     path: 'userlist',
     component: UserListComponent
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'dashboard'
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

@@ -1,5 +1,5 @@
-<h3>Hii , Guest</h3>
-
+<div *ngIf="isLogin()">
+    <h3><b>Hi, {{form.data.fname }} ( {{form.data.role}} )</b></h3>
 
 <a [routerLink]="['/role']"><b>Add Role</b></a> |
 <a [routerLink]="['/rolelist']"><b>Role List</b></a> |
@@ -20,6 +20,16 @@
 <a [routerLink]="['/faculty']"><b>Add Faculty</b></a> | 
 <a [routerLink]="['/facultylist']"><b>Faculty List</b></a> |
 
+<a (click)="logout()">
+        <font color="blue"><b>Logout</b></font>
+    </a>
+</div>
+<div *ngIf="!isLogin()">
+    <h3>Hi, Guest</h3>
 
+    <a [routerLink]="['/dashboard']"><b>Dashboard</b></a> |
+    <a [routerLink]="['/login']"><b>Login</b></a>|
+    
+</div>
 
 <hr>

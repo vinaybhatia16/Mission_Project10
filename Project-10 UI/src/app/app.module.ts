@@ -29,6 +29,8 @@ import { CollegeListComponent } from './college/collegelist.component';
 import { FacultyListComponent } from './faculty/facultylist.component';
 import { StudentListComponent } from './student/studentlist.component';
 import { TimetableListComponent } from './timetable/timetablelist.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { TimetableListComponent } from './timetable/timetablelist.component';
     CourseListComponent,
     CollegeListComponent,
     FacultyListComponent,
-    FacultyListComponent
+    FacultyListComponent,
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

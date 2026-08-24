@@ -1,0 +1,47 @@
+package com.rays.service;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.rays.common.BaseServiceImpl;
+import com.rays.common.UserContext;
+import com.rays.dao.UserDAOInt;
+import com.rays.dto.UserDTO;
+
+
+@Service
+@Transactional(readOnly = true)
+public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implements UserServiceInt {
+
+	@Override
+	@Transactional(readOnly = true)
+	public UserDTO findByLoginId(String login, UserContext userContext) {
+		
+		return baseDao.findByUniqueKey("loginId", login, userContext);
+		 
+	}
+
+	@Override
+	public UserDTO authenticate(String loginId, String password) {
+
+		UserDTO dto = findByLoginId(loginId, null);
+
+		if (dto != null) {
+			UserContext userContext = new UserContext(dto);
+			if (password.equals(dto.getPassword())) {
+				dto.setLastLogin(new Timestamp((new Date()).getTime()));
+				dto.setUnsucessfullLoginAttempt(0);
+				update(dto, userContext);
+				return dto;
+			} else {
+				dto.setUnsucessfullLoginAttempt(1 + dto.getUnsucessfullLoginAttempt());
+				update(dto, userContext);
+			}
+		}
+		return null;
+	}
+
+}
