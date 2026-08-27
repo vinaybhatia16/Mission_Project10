@@ -1,47 +1,122 @@
+<div class="container py-4">
+
+   <!-- Form Card -->
+   <div class="card shadow border-0 rounded-4 mx-auto"
+      style="max-width: 650px;">
+
+      <!-- Header -->
+      <div class="card-header text-white text-center rounded-top-4"
+         style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);">
+
+         <h2 class="mb-0 fw-bold" *ngIf="!form.data.id">
+            <i class="bi bi-shield-plus me-2"></i>
+            Add Role
+         </h2>
+
+         <h2 class="mb-0 fw-bold" *ngIf="form.data.id > 0">
+            <i class="bi bi-pencil-square me-2"></i>
+            Update Role
+         </h2>
+
+      </div>
 
 
-<div align="center">
-    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Role</h1>
-    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Role</h1>
+      <!-- Form Body -->
+      <div class="card-body p-4">
 
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
-    </div>
 
-     <table>
-        <tr>
-            <th align="left">Name<span style="color: red">*</span></th>
-            <td align="center"><input type="text" name="name" [(ngModel)]="form.data.name" placeholder="Enter Role Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.name}}</td>
-        </tr>
+         <!-- Success Message -->
+         <div class="alert alert-success text-center"
+            *ngIf="!form.error && form.message">
 
-        <tr>
-            <th align="left">
-                Description<span style="color: red">*</span>
-            </th>
-            <td align="center">
-                <textarea 
-                    style="width: 165px; resize: none;" 
-                    name="description" 
-                    [(ngModel)]="form.data.description"
-                    rows="3" 
-                    placeholder="Enter Short description">
-                </textarea>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.description}}</td>
-        </tr>
+            <i class="bi bi-check-circle me-2"></i>
+            {{ form.message }}
 
-        <tr></tr>
+         </div>
 
-        <tr>
-            <th></th>
-            <td align="left" colspan="2">
-                <button (click)="submit()">save</button> &nbsp;
-                
-            </td>
-        </tr>
-    </table>
+
+         <!-- Error Message -->
+         <div class="alert alert-danger text-center"
+            *ngIf="form.error && form.message">
+
+            <i class="bi bi-exclamation-triangle me-2"></i>
+            {{ form.message }}
+
+         </div>
+
+
+         <!-- Role Name -->
+         <div class="mb-3">
+
+            <label class="form-label fw-bold">
+               Name
+               <span class="text-danger">*</span>
+            </label>
+
+            <input
+               type="text"
+               name="name"
+               class="form-control"
+               [(ngModel)]="form.data.name"
+               placeholder="Enter Role Name">
+
+            <div class="text-danger small mt-1"
+               *ngIf="form.inputerror.name">
+
+               {{ form.inputerror.name }}
+
+            </div>
+
+         </div>
+
+
+         <!-- Description -->
+         <div class="mb-4">
+
+            <label class="form-label fw-bold">
+               Description
+               <span class="text-danger">*</span>
+            </label>
+
+            <textarea
+               name="description"
+               class="form-control"
+               [(ngModel)]="form.data.description"
+               rows="4"
+               placeholder="Enter Short Description"
+               style="resize: none;"></textarea>
+
+            <div class="text-danger small mt-1"
+               *ngIf="form.inputerror.description">
+
+               {{ form.inputerror.description }}
+
+            </div>
+
+         </div>
+
+
+         <!-- Buttons -->
+         <div class="text-center">
+
+            <button
+               type="button"
+               class="btn btn-primary px-4 me-2"
+               (click)="submit()">
+
+               <i class="bi bi-save me-2"></i>
+               Save
+
+            </button>
+
+         </div>
+
+      </div>
+
+   </div>
+
 </div>
 
+
+<!-- Footer -->
 <app-footer></app-footer>

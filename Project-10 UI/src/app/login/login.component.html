@@ -1,45 +1,57 @@
-<div align="center">
+<main class="login-page">
+    <section class="login-layout">
+        <div class="login-intro">
+            <div class="login-brand-mark">
+                <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <p class="login-kicker">Rays Technologies</p>
+            <h1>Results that move education forward.</h1>
+            <p class="login-intro-copy">A focused workspace for managing academic records, people, and progress in one place.</p>
+            <div class="login-photo-wrap">
+                <img src="assets/rays.jpg" alt="Rays Technologies">
+            </div>
+        </div>
 
-    <h1 align="center" style="margin-bottom: 5px; color: navy">Login</h1>
+        <div class="login-panel">
+            <div class="login-panel-heading">
+                <p class="text-uppercase text-primary fw-bold small mb-2">Online Result System</p>
+                <h2>Welcome back</h2>
+                <p class="text-secondary mb-0">Sign in to continue to your workspace.</p>
+            </div>
 
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
-    </div>
+            <div class="alert alert-success" *ngIf="!form.error && form.message">{{ form.message }}</div>
+            <div class="alert alert-danger" *ngIf="form.error && form.message">{{ form.message }}</div>
 
-    <table>
-        <tr>
-            <th align="left">Login Id<span style="color: red">*</span></th>
-            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter Login ID"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
-        </tr>
+            <div class="login-form">
+                <div class="mb-3">
+                    <label class="form-label" for="loginId">Login ID</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                        <input id="loginId" type="text" class="form-control" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter your login ID">
+                    </div>
+                    <div class="text-danger small mt-1" *ngIf="form.inputerror.loginId">{{form.inputerror.loginId}}</div>
+                </div>
 
-        <tr>
-            <th align="left">Password<span style="color: red">*</span></th>
-            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.password}}</td>
-        </tr>
+                <div class="mb-4">
+                    <label class="form-label" for="password">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                        <input id="password" type="password" class="form-control" name="password" [(ngModel)]="form.data.password" placeholder="Enter your password">
+                    </div>
+                    <div class="text-danger small mt-1" *ngIf="form.inputerror.password">{{form.inputerror.password}}</div>
+                </div>
 
-        <tr></tr>
+                <button class="btn btn-primary w-100 py-2" (click)="signIn()">
+                    Sign in <i class="bi bi-arrow-right ms-2"></i>
+                </button>
 
-        <tr>
-            <th></th>
-            <td colspan="2">
-                <button (click)="signIn()">Sign In</button>&nbsp;
-                <button (click)="signUp()">Sign Up</button>
-            </td>
-        </tr>
-
-        <tr>
-            <th></th>
-            <td></td>
-        </tr>
-
-        <tr>
-            <th></th>
-            <td><a [routerLink]="['/forgotpassword']"><b>Forget my password?</b></a>&nbsp;</td>
-        </tr>
-    </table>
-</div>
+                <div class="login-secondary-actions">
+                    <a [routerLink]="['/forgotpassword']">Forgot password?</a>
+                    <button class="btn btn-link p-0" (click)="signUp()">Create an account</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 <app-footer></app-footer>

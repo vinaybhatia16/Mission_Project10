@@ -8,26 +8,32 @@
     </div>
 
     <div *ngIf="form.list.length > 0">
-        <table style="width: 100%">
-            <tr>
-                <td align="center">
-                    <label><b>First Name: </b></label>
-                    <input type="text" name="firstName" [(ngModel)]="form.searchParams.firstName" placeholder="Enter First Name">&nbsp;
+        <div class="row g-3 align-items-end mb-4">
+            <div class="col-md-4">
+                <label for="userFirstName" class="form-label fw-bold">First Name</label>
+                <input id="userFirstName" type="text" name="firstName" class="form-control"
+                    [(ngModel)]="form.searchParams.firstName" placeholder="Enter First Name">
+            </div>
 
-                    <label><b>Login Id: </b></label>
-                    <input type="text" name="loginId" [(ngModel)]="form.searchParams.loginId" placeholder="Enter Email ID">&nbsp;
+            <div class="col-md-4">
+                <label for="userLoginId" class="form-label fw-bold">Login Id</label>
+                <input id="userLoginId" type="text" name="loginId" class="form-control"
+                    [(ngModel)]="form.searchParams.loginId" placeholder="Enter Login ID">
+            </div>
 
-                    <label><b>Role: </b></label>
-                    <select name="roleId" [(ngModel)]="form.searchParams.roleId" style="width: 165px;">
-                        <option value="undefined">------------Select------------</option>
-                        <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">{{obj.value}}</option>
-                    </select>&nbsp;
+            <div class="col-md-4">
+                <label for="userRoleId" class="form-label fw-bold">Role</label>
+                <select id="userRoleId" name="roleId" class="form-select" [(ngModel)]="form.searchParams.roleId">
+                    <option [ngValue]="undefined">------------ Select ------------</option>
+                    <option *ngFor="let obj of form.preload.roleList" [ngValue]="obj.key">{{ obj.value }}</option>
+                </select>
+            </div>
 
-                    <button (click)="search()">search</button>&nbsp;
-                    <button (click)="reset()">reset</button>
-                </td>
-            </tr>
-        </table>
+            <div class="col-12 d-flex justify-content-center gap-2">
+                <button type="button" class="btn btn-primary" (click)="search()">Search</button>
+                <button type="button" class="btn btn-outline-secondary" (click)="reset()">Reset</button>
+            </div>
+        </div>
 
         <br>
 

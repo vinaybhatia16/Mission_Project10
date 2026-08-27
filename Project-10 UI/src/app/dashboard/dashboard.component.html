@@ -1,10 +1,112 @@
-<br><br><br><br><br><br><br>
-<h1 align="center">
-    <font size="10px" color="navy">Welcome to ORSProject-10</font>
-</h1>
-<br> <br> <br> <br> <br> <br> <br>
-<br> <br> <br> <br> <br> <br> <br>
-<br> <br> <br> <br>
-<br> <br>
+<div class="container-fluid px-4 py-4" style="max-width: 1200px;">
 
+    <!-- Hero Banner -->
+    <div class="rounded-4 text-white p-4 p-md-5 mb-4 shadow-lg"
+        style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <p class="text-uppercase small fw-semibold mb-2" style="letter-spacing: 1.5px; color: #90caf9;">
+                    Powered By Rays Technologies
+                </p>
+
+                <h1 class="fw-bold mb-3 display-5">
+                    Welcome to Online Result System
+                </h1>
+
+                <p class="lead mb-3" style="color: #dce8f7;">
+                    Manage Marksheets, Colleges, Courses, Subjects,
+                    Students, Faculty and Timetables from one place.
+                </p>
+
+                <p class="mb-0 fst-italic" style="color: #b0c4de;">
+                    A Project Designed and Developed by Vinay Bhatia.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                <img src="assets/rays.jpg" class="img-fluid rounded-4 shadow" style="max-height:220px;" alt="ORS">
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="row g-4 mb-5 pb-4" *ngIf="isLogin()">
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card">
+                <div class="card-body text-center py-4">
+                    <div class="icon-circle bg-primary bg-opacity-10 mx-auto mb-3">
+                        <i class="bi bi-file-earmark-text fs-3 text-primary"></i>
+                    </div>
+                    <h5 class="mb-2">Marksheets</h5>
+                    <p class="text-muted small mb-0">Manage student marksheets.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card">
+                <div class="card-body text-center py-4">
+                    <div class="icon-circle bg-success bg-opacity-10 mx-auto mb-3">
+                        <i class="bi bi-building fs-3 text-success"></i>
+                    </div>
+                    <h5 class="mb-2">Colleges</h5>
+                    <p class="text-muted small mb-0">Manage college records.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card">
+                <div class="card-body text-center py-4">
+                    <div class="icon-circle bg-warning bg-opacity-10 mx-auto mb-3">
+                        <i class="bi bi-people fs-3 text-warning"></i>
+                    </div>
+                    <h5 class="mb-2">Students</h5>
+                    <p class="text-muted small mb-0">Manage student information.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card">
+                <div class="card-body text-center py-4">
+                    <div class="icon-circle bg-danger bg-opacity-10 mx-auto mb-3">
+                        <i class="bi bi-person-workspace fs-3 text-danger"></i>
+                    </div>
+                    <h5 class="mb-2">Faculty</h5>
+                    <p class="text-muted small mb-0">Manage faculty details.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 <app-footer></app-footer>
+
+<style>
+    .icon-circle {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .feature-card {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+    }
+</style>

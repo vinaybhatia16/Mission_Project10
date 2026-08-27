@@ -1,54 +1,40 @@
 
-
-<div align="center">
-    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add College</h1>
-    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update College</h1>
-
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
-    </div>
-
-    <table>
-        <tr>
-            <th align="left">Name<span style="color: red">*</span></th>
-            <td><input type="text" name="name" [(ngModel)]="form.data.name" placeholder="Enter College Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.name}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Address<span style="color: red">*</span></th>
-            <td><input type="text" name="address" [(ngModel)]="form.data.address" placeholder="Enter Address"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.address}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">State<span style="color: red">*</span></th>
-            <td><input type="text" name="state" [(ngModel)]="form.data.state" placeholder="Enter State"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.state}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">City<span style="color: red">*</span></th>
-            <td><input type="text" name="city" [(ngModel)]="form.data.city" placeholder="Enter City"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.city}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Phone No<span style="color: red">*</span></th>
-            <td><input type="text" name="phoneNo" [(ngModel)]="form.data.phoneNo" maxlength="10" placeholder="Enter Phone No."></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.phoneNo}}</td>
-        </tr>
-
-        <tr></tr>
-
-        <tr>
-            <th></th>
-            <td align="left" colspan="2">
-                <button (click)="submit()">save</button>
-            </td>
-        </tr>
-    </table>
+<div class="container py-4">
+   <div class="card shadow border-0 rounded-4 mx-auto" style="max-width: 650px;">
+      <div class="card-header text-white text-center rounded-top-4" style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);">
+         <h2 class="mb-0 fw-bold" *ngIf="!form.data.id"><i class="bi bi-building-add me-2"></i>Add College</h2>
+         <h2 class="mb-0 fw-bold" *ngIf="form.data.id > 0"><i class="bi bi-pencil-square me-2"></i>Update College</h2>
+      </div>
+      <div class="card-body p-4">
+         <div class="alert alert-success text-center" *ngIf="!form.error && form.message"><i class="bi bi-check-circle me-2"></i>{{ form.message }}</div>
+         <div class="alert alert-danger text-center" *ngIf="form.error && form.message"><i class="bi bi-exclamation-triangle me-2"></i>{{ form.message }}</div>
+         <div class="mb-3">
+            <label class="form-label fw-bold">Name <span class="text-danger">*</span></label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="form.data.name" placeholder="Enter College Name">
+            <div class="text-danger small mt-1" *ngIf="form.inputerror.name">{{ form.inputerror.name }}</div>
+         </div>
+         <div class="mb-3">
+            <label class="form-label fw-bold">Address <span class="text-danger">*</span></label>
+            <input type="text" name="address" class="form-control" [(ngModel)]="form.data.address" placeholder="Enter Address">
+            <div class="text-danger small mt-1" *ngIf="form.inputerror.address">{{ form.inputerror.address }}</div>
+         </div>
+         <div class="mb-3">
+            <label class="form-label fw-bold">State <span class="text-danger">*</span></label>
+            <input type="text" name="state" class="form-control" [(ngModel)]="form.data.state" placeholder="Enter State">
+            <div class="text-danger small mt-1" *ngIf="form.inputerror.state">{{ form.inputerror.state }}</div>
+         </div>
+         <div class="mb-3">
+            <label class="form-label fw-bold">City <span class="text-danger">*</span></label>
+            <input type="text" name="city" class="form-control" [(ngModel)]="form.data.city" placeholder="Enter City">
+            <div class="text-danger small mt-1" *ngIf="form.inputerror.city">{{ form.inputerror.city }}</div>
+         </div>
+         <div class="mb-4">
+            <label class="form-label fw-bold">Phone No <span class="text-danger">*</span></label>
+            <input type="text" name="phoneNo" class="form-control" [(ngModel)]="form.data.phoneNo" maxlength="10" placeholder="Enter Phone No.">
+            <div class="text-danger small mt-1" *ngIf="form.inputerror.phoneNo">{{ form.inputerror.phoneNo }}</div>
+         </div>
+         <div class="text-center"><button type="button" class="btn btn-primary px-4" (click)="submit()"><i class="bi bi-save me-2"></i>Save</button></div>
+      </div>
+   </div>
 </div>
-
 <app-footer></app-footer>

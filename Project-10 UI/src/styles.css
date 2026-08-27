@@ -1,1 +1,366 @@
-/* You can add global styles to this file, and also import other style files */
+/* Shared Bootstrap-friendly foundation for the legacy CRUD screens. */
+:root {
+	--ors-ink: #17324d;
+	--ors-blue: #2563a6;
+	--ors-coral: #f4745f;
+	--ors-surface: #ffffff;
+	--ors-page: #f4f7fb;
+	--ors-border: #dbe4ee;
+}
+
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	background: radial-gradient(circle at 90% 0%, rgba(247, 200, 115, .12), transparent 24rem), var(--ors-page);
+	color: var(--ors-ink);
+	font-family: 'Outfit', 'Trebuchet MS', sans-serif;
+}
+
+app-root {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+app-root > router-outlet ~ *:not(app-footer) {
+	flex: 1 0 auto;
+}
+
+app-root > router-outlet ~ * > div[align="center"] {
+	width: min(100% - 2rem, 1100px);
+	margin: 2rem auto;
+	padding: clamp(1.25rem, 3vw, 2.5rem);
+	background: var(--ors-surface);
+	border: 1px solid var(--ors-border);
+	border-radius: .75rem;
+	box-shadow: 0 .5rem 1.5rem rgba(23, 50, 77, .08);
+}
+
+app-root > router-outlet ~ * > div[align="center"] > h1 {
+	margin: 0 0 1.5rem !important;
+	color: var(--ors-ink) !important;
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	font-weight: 700;
+}
+
+app-root > router-outlet ~ * > div[align="center"] > table,
+app-root > router-outlet ~ * > div[align="center"] > div > table {
+	width: 100% !important;
+	margin: 0 auto 1.25rem;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+app-root > router-outlet ~ * > div[align="center"] > table:not(:has(input)),
+app-root > router-outlet ~ * > div[align="center"] > div > table:not(:has(input)) {
+	overflow: hidden;
+	border: 1px solid var(--ors-border) !important;
+	border-radius: .5rem;
+}
+
+app-root > router-outlet ~ * > div[align="center"] th,
+app-root > router-outlet ~ * > div[align="center"] td {
+	padding: .75rem;
+	border-bottom: 1px solid var(--ors-border);
+	vertical-align: middle;
+}
+
+app-root > router-outlet ~ * > div[align="center"] th {
+	color: var(--ors-ink);
+	background: #edf3f9;
+	font-size: .875rem;
+	font-weight: 700;
+}
+
+app-root > router-outlet ~ * > div[align="center"] tr:last-child > td,
+app-root > router-outlet ~ * > div[align="center"] tr:last-child > th {
+	border-bottom: 0;
+}
+
+app-root > router-outlet ~ * > div[align="center"] input:not([type="checkbox"]),
+app-root > router-outlet ~ * > div[align="center"] select {
+	width: 100%;
+	max-width: 26rem;
+	min-height: 2.5rem;
+	padding: .5rem .75rem;
+	color: var(--ors-ink);
+	background: #fff;
+	border: 1px solid #b9c8d8;
+	border-radius: .375rem;
+	transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+app-root > router-outlet ~ * > div[align="center"] input:not([type="checkbox"]):focus,
+app-root > router-outlet ~ * > div[align="center"] select:focus {
+	border-color: var(--ors-blue);
+	outline: 0;
+	box-shadow: 0 0 0 .2rem rgba(37, 99, 166, .16);
+}
+
+app-root > router-outlet ~ * > div[align="center"] button,
+app-root > router-outlet ~ * > div[align="center"] a[style*="cursor"] {
+	display: inline-block;
+	padding: .5rem 1rem;
+	color: #fff;
+	background: var(--ors-blue);
+	border: 1px solid var(--ors-blue);
+	border-radius: .375rem;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color .15s ease, transform .15s ease;
+}
+
+app-root > router-outlet ~ * > div[align="center"] button:hover,
+app-root > router-outlet ~ * > div[align="center"] a[style*="cursor"]:hover {
+	background: #1d4f86;
+	border-color: #1d4f86;
+	transform: translateY(-1px);
+}
+
+app-root > router-outlet ~ * > div[align="center"] button:disabled {
+	opacity: .55;
+	cursor: not-allowed;
+	transform: none;
+}
+
+/* Give the legacy add/edit templates the same card treatment as the role form. */
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) {
+	width: min(100% - 2rem, 650px);
+	padding: 0;
+	overflow: hidden;
+	border-radius: 1rem;
+	box-shadow: 0 .5rem 1.5rem rgba(23, 50, 77, .12);
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > h1 {
+	margin: 0 !important;
+	padding: 1.25rem 1.5rem;
+	color: #fff !important;
+	background: linear-gradient(135deg, #17324d 0%, #2563a6 100%);
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > div {
+	min-height: 1.5rem;
+	margin: 0 !important;
+	padding: 1rem 2rem 0;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > div h3 {
+	font-size: .9rem;
+	font-weight: 600;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table {
+	width: calc(100% - 4rem) !important;
+	margin: 0 2rem 2rem;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table:first-of-type {
+	margin-top: 1rem;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table th {
+	width: 36%;
+	padding: .7rem .75rem .7rem 0;
+	background: transparent;
+	border-bottom: 0;
+	font-size: .875rem;
+	text-align: left;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table td {
+	padding: .7rem 0;
+	border-bottom: 0;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table td:last-child {
+	position: static !important;
+	width: 30%;
+	padding-left: 1rem;
+	color: #dc3545;
+	font-size: .8125rem;
+	line-height: 1.35;
+	text-align: left;
+	vertical-align: middle;
+	word-break: break-word;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table th {
+	width: 30%;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table td:nth-child(2) {
+	width: 40%;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table input:not([type="checkbox"]),
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table select,
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table textarea {
+	box-sizing: border-box;
+	width: 100% !important;
+	max-width: none;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) textarea {
+	width: 100% !important;
+	min-height: 6rem;
+	padding: .5rem .75rem;
+	border: 1px solid #b9c8d8;
+	border-radius: .375rem;
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) textarea:focus {
+	border-color: var(--ors-blue);
+	outline: 0;
+	box-shadow: 0 0 0 .2rem rgba(37, 99, 166, .16);
+}
+
+app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table tr:last-child td {
+	padding-top: 1rem;
+	text-align: center;
+}
+
+app-navbar .navbar {
+	min-height: 4.25rem !important;
+	padding: .5rem 1.25rem !important;
+	background: rgba(23, 50, 77, .96) !important;
+	box-shadow: 0 .5rem 1.5rem rgba(23, 50, 77, .18);
+	backdrop-filter: blur(12px);
+}
+
+app-navbar .navbar > a:first-child {
+	margin-left: 0 !important;
+	padding: .25rem;
+	background: rgba(255, 255, 255, .12);
+	border-radius: .75rem;
+}
+
+app-navbar .navbar > a:first-child img {
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: .55rem !important;
+}
+
+app-navbar .navbar .nav-link {
+	border-radius: .5rem;
+	font-size: .9rem;
+	transition: background-color .15s ease, color .15s ease;
+}
+
+app-navbar .navbar .nav-link:hover,
+app-navbar .navbar .nav-link:focus {
+	background: rgba(255, 255, 255, .12);
+	color: #fff !important;
+}
+
+app-navbar .navbar .dropdown-menu {
+	margin-top: .5rem;
+	padding: .5rem;
+	background: #17324d !important;
+	border: 1px solid rgba(255, 255, 255, .12) !important;
+	border-radius: .75rem !important;
+}
+
+app-navbar .navbar .dropdown-item {
+	border-radius: .5rem;
+}
+
+app-footer .footer {
+	position: relative;
+	padding: 1rem 1.25rem;
+	background: #17324d;
+	box-shadow: 0 -1px 0 rgba(255, 255, 255, .08);
+}
+
+app-dashboard .container-fluid {
+	max-width: 1240px !important;
+	padding-top: 3rem !important;
+}
+
+app-dashboard .container-fluid > div:first-child {
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(125deg, #17324d 0%, #225d83 68%, #237f83 100%) !important;
+	border: 0;
+	border-radius: 1.25rem !important;
+}
+
+app-dashboard .feature-card {
+	border: 1px solid var(--ors-border) !important;
+	border-radius: 1rem !important;
+	transition: transform .2s ease, box-shadow .2s ease;
+}
+
+app-dashboard .feature-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 1rem 2rem rgba(23, 50, 77, .12) !important;
+}
+
+@media (max-width: 720px) {
+	.login-page {
+		padding: 1rem .75rem 4rem;
+	}
+
+	.login-layout {
+		grid-template-columns: 1fr;
+		min-height: auto;
+	}
+
+	.login-intro {
+		min-height: 270px;
+		padding: 2rem;
+	}
+
+	.login-brand-mark {
+		margin-bottom: 2rem;
+	}
+
+	.login-intro h1 {
+		max-width: 20rem;
+		font-size: 2.25rem;
+	}
+
+	.login-photo-wrap {
+		right: 2rem;
+		bottom: 2rem;
+	}
+
+	.login-panel {
+		padding: 2rem 1.5rem 2.5rem;
+	}
+}
+
+@media (max-width: 640px) {
+	app-root > router-outlet ~ * > div[align="center"] {
+		width: min(100% - 1rem, 1100px);
+		margin: 1rem auto;
+		padding: 1rem .75rem;
+		overflow-x: auto;
+	}
+
+	app-root > router-outlet ~ * > div[align="center"] > table {
+		min-width: 34rem;
+	}
+
+	app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) {
+		width: calc(100% - 1rem);
+	}
+
+	app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > div {
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+
+	app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) > table {
+		width: calc(100% - 2rem) !important;
+		margin-right: 1rem;
+		margin-left: 1rem;
+	}
+}

@@ -1,106 +1,24 @@
-
-<div align="center">
-    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Faculty</h1>
-    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Faculty</h1>
-
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
-    </div>
-
-    <table>
-         <tr>
-            <th align="left">First Name<span style="color: red">*</span></th>
-            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
-        </tr>
-
-         <tr>
-            <th align="left">Last Name<span style="color: red">*</span></th>
-            <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" placeholder="Enter Last Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.lastName}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Email<span style="color: red">*</span></th>
-            <td><input type="text" name="email" [(ngModel)]="form.data.email" placeholder="Enter Email ID"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.email}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Date of Birth<span style="color: red">*</span></th>
-            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" placeholder="Select Date of Birth" style="width: 97%;"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Gender<span style="color: red">*</span></th>
-            <td>
-                <select name="gender" [(ngModel)]="form.data.gender" style="width: 170px;">
-                    <option value="undefined">------------Select------------</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.gender}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Mobile No<span style="color: red">*</span></th>
-            <td><input type="text" name="phoneNo" [(ngModel)]="form.data.phoneNo" maxlength="10"
-                    placeholder="Enter Mobile No."></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.phoneNo}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Qualification<span style="color: red">*</span></th>
-            <td><input type="text" name="qualification" [(ngModel)]="form.data.qualification" placeholder="Enter qualification"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.qualification}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">College<span style="color: red">*</span></th>
-            <td>
-                <select name="collegeId" [(ngModel)]="form.data.collegeId" style="width: 170px;">
-                    <option value="undefined">------------Select------------</option>
-                    <option *ngFor="let obj of form.preload.collegeList" [value]="obj.key">{{obj.value}}</option>
-                </select>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.collegeId}}</td>
-        </tr>
-
-         <tr>
-            <th align="left">Course<span style="color: red">*</span></th>
-            <td>
-                <select name="courseId" [(ngModel)]="form.data.courseId" style="width: 170px;">
-                    <option value="undefined">------------Select------------</option>
-                    <option *ngFor="let obj of form.preload.courseList" [value]="obj.key">{{obj.value}}</option>
-                </select>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.courseId}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Subject<span style="color: red">*</span></th>
-            <td>
-                <select name="subjectId" [(ngModel)]="form.data.subjectId" style="width: 170px;">
-                    <option value="undefined">------------Select------------</option>
-                    <option *ngFor="let obj of form.preload.subjectList" [value]="obj.key">{{obj.value}}</option>
-                </select>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.subjectId}}</td>
-        </tr>
-
-        <tr></tr>
-
-        <tr>
-            <th></th>
-            <td align="left" colspan="2">
-                <button (click)="submit()">save</button> 
-                
-            </td>
-        </tr>
-    </table>
+<div class="container py-4">
+   <div class="card shadow border-0 rounded-4 mx-auto" style="max-width: 650px;">
+      <div class="card-header text-white text-center rounded-top-4" style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);">
+         <h2 class="mb-0 fw-bold" *ngIf="!form.data.id"><i class="bi bi-person-badge me-2"></i>Add Faculty</h2>
+         <h2 class="mb-0 fw-bold" *ngIf="form.data.id > 0"><i class="bi bi-pencil-square me-2"></i>Update Faculty</h2>
+      </div>
+      <div class="card-body p-4">
+         <div class="alert alert-success text-center" *ngIf="!form.error && form.message"><i class="bi bi-check-circle me-2"></i>{{ form.message }}</div>
+         <div class="alert alert-danger text-center" *ngIf="form.error && form.message"><i class="bi bi-exclamation-triangle me-2"></i>{{ form.message }}</div>
+         <div class="mb-3"><label class="form-label fw-bold">First Name <span class="text-danger">*</span></label><input type="text" name="firstName" class="form-control" [(ngModel)]="form.data.firstName" placeholder="Enter First Name"><div class="text-danger small mt-1" *ngIf="form.inputerror.firstName">{{ form.inputerror.firstName }}</div></div>
+         <div class="mb-3"><label class="form-label fw-bold">Last Name <span class="text-danger">*</span></label><input type="text" name="lastName" class="form-control" [(ngModel)]="form.data.lastName" placeholder="Enter Last Name"><div class="text-danger small mt-1" *ngIf="form.inputerror.lastName">{{ form.inputerror.lastName }}</div></div>
+         <div class="mb-3"><label class="form-label fw-bold">Email <span class="text-danger">*</span></label><input type="text" name="email" class="form-control" [(ngModel)]="form.data.email" placeholder="Enter Email ID"><div class="text-danger small mt-1" *ngIf="form.inputerror.email">{{ form.inputerror.email }}</div></div>
+         <div class="mb-3"><label class="form-label fw-bold">Date of Birth <span class="text-danger">*</span></label><input type="date" name="dob" class="form-control" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" (ngModelChange)="form.data.dob = $event"><div class="text-danger small mt-1" *ngIf="form.inputerror.dob">{{ form.inputerror.dob }}</div></div>
+         <div class="mb-3"><label class="form-label fw-bold">Gender <span class="text-danger">*</span></label><select name="gender" class="form-select" [(ngModel)]="form.data.gender"><option [ngValue]="undefined">------------ Select ------------</option><option value="Male">Male</option><option value="Female">Female</option></select><div class="text-danger small mt-1" *ngIf="form.inputerror.gender">{{ form.inputerror.gender }}</div></div>
+         <div class="mb-3"><label class="form-label fw-bold">Mobile No <span class="text-danger">*</span></label><input type="text" name="phoneNo" class="form-control" [(ngModel)]="form.data.phoneNo" maxlength="10" placeholder="Enter Mobile No."><div class="text-danger small mt-1" *ngIf="form.inputerror.phoneNo">{{ form.inputerror.phoneNo }}</div></div>
+         <div class="mb-3"><label class="form-label fw-bold">Qualification <span class="text-danger">*</span></label><input type="text" name="qualification" class="form-control" [(ngModel)]="form.data.qualification" placeholder="Enter Qualification"><div class="text-danger small mt-1" *ngIf="form.inputerror.qualification">{{ form.inputerror.qualification }}</div></div>
+         <div class="mb-3"><label class="form-label fw-bold">College <span class="text-danger">*</span></label><select name="collegeId" class="form-select" [(ngModel)]="form.data.collegeId"><option [ngValue]="undefined">------------ Select ------------</option><option *ngFor="let obj of form.preload.collegeList" [ngValue]="obj.key">{{ obj.value }}</option></select><div class="text-danger small mt-1" *ngIf="form.inputerror.collegeId">{{ form.inputerror.collegeId }}</div></div>
+         <div class="mb-3"><label class="form-label fw-bold">Course <span class="text-danger">*</span></label><select name="courseId" class="form-select" [(ngModel)]="form.data.courseId"><option [ngValue]="undefined">------------ Select ------------</option><option *ngFor="let obj of form.preload.courseList" [ngValue]="obj.key">{{ obj.value }}</option></select><div class="text-danger small mt-1" *ngIf="form.inputerror.courseId">{{ form.inputerror.courseId }}</div></div>
+         <div class="mb-4"><label class="form-label fw-bold">Subject <span class="text-danger">*</span></label><select name="subjectId" class="form-select" [(ngModel)]="form.data.subjectId"><option [ngValue]="undefined">------------ Select ------------</option><option *ngFor="let obj of form.preload.subjectList" [ngValue]="obj.key">{{ obj.value }}</option></select><div class="text-danger small mt-1" *ngIf="form.inputerror.subjectId">{{ form.inputerror.subjectId }}</div></div>
+         <div class="text-center"><button type="button" class="btn btn-primary px-4" (click)="submit()"><i class="bi bi-save me-2"></i>Save</button></div>
+      </div>
+   </div>
 </div>
-
 <app-footer></app-footer>

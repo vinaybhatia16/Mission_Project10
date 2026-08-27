@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  isLogin(): boolean {
+    const firstName = localStorage.getItem('fname');
+    return firstName !== 'null' && firstName !== null;
+  }
 }
