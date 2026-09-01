@@ -17,7 +17,7 @@ import { HttpServiceService } from './http-service.service';
 import { EndpointServiceService } from './endpoint-service.service';
 import { ServiceLocatorService } from './service-locator.service';
 import { AuthServiceService } from './auth-service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RoleListComponent } from './role/rolelist.component';
@@ -31,6 +31,8 @@ import { StudentListComponent } from './student/studentlist.component';
 import { TimetableListComponent } from './timetable/timetablelist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './login/signup.component';
+import { ForgotpasswordComponent } from './login/forgotpassword.component';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { LoginComponent } from './login/login.component';
     FacultyListComponent,
     FacultyListComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +71,9 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: AuthServiceService, multi: true
+    },
     HttpServiceService,
     EndpointServiceService,
     ServiceLocatorService,

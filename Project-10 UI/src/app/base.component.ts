@@ -41,6 +41,10 @@ export class BaseCtl implements OnInit {
     constructor(public endpoint: String, public serviceLocator: ServiceLocatorService, public route: ActivatedRoute) {
         var _self = this;
         _self.initApi(endpoint);
+
+        serviceLocator.getPathVariable(route, function (params: any) {
+            _self.form.data.id = params["id"];
+        })
     }
 
     ngOnInit(): void {

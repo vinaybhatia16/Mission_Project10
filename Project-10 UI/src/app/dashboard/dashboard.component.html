@@ -1,8 +1,9 @@
-<div class="container-fluid px-4 py-4" style="max-width: 1200px;">
+<div class="dashboard-page">
+    <div class="container-fluid px-4 py-4" style="max-width: 1200px;">
 
     <!-- Hero Banner -->
-    <div class="rounded-4 text-white p-4 p-md-5 mb-4 shadow-lg"
-        style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);">
+    <div class="dashboard-hero rounded-4 text-white p-3 p-md-4 mb-4 shadow-lg"
+        style="background: linear-gradient(135deg, rgba(13,33,55,0.88) 0%, rgba(21,101,192,0.82) 100%);">
 
         <div class="row align-items-center">
 
@@ -12,7 +13,7 @@
                     Powered By Rays Technologies
                 </p>
 
-                <h1 class="fw-bold mb-3 display-5">
+                <h1 class="fw-bold mb-3 display-6">
                     Welcome to Online Result System
                 </h1>
 
@@ -28,7 +29,7 @@
             </div>
 
             <div class="col-lg-4 text-center mt-4 mt-lg-0">
-                <img src="assets/rays.jpg" class="img-fluid rounded-4 shadow" style="max-height:220px;" alt="ORS">
+                <img src="assets/rays.jpg" class="img-fluid rounded-4 shadow" style="max-height:180px;" alt="ORS">
             </div>
 
         </div>
@@ -39,7 +40,7 @@
     <div class="row g-4 mb-5 pb-4" *ngIf="isLogin()">
 
         <div class="col-md-3 col-sm-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card">
+            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card" routerLink="/marksheetlist" tabindex="0" role="link">
                 <div class="card-body text-center py-4">
                     <div class="icon-circle bg-primary bg-opacity-10 mx-auto mb-3">
                         <i class="bi bi-file-earmark-text fs-3 text-primary"></i>
@@ -51,7 +52,7 @@
         </div>
 
         <div class="col-md-3 col-sm-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card">
+            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card" routerLink="/collegelist" tabindex="0" role="link">
                 <div class="card-body text-center py-4">
                     <div class="icon-circle bg-success bg-opacity-10 mx-auto mb-3">
                         <i class="bi bi-building fs-3 text-success"></i>
@@ -63,7 +64,7 @@
         </div>
 
         <div class="col-md-3 col-sm-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card">
+            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card" routerLink="/studentlist" tabindex="0" role="link">
                 <div class="card-body text-center py-4">
                     <div class="icon-circle bg-warning bg-opacity-10 mx-auto mb-3">
                         <i class="bi bi-people fs-3 text-warning"></i>
@@ -75,7 +76,7 @@
         </div>
 
         <div class="col-md-3 col-sm-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card">
+            <div class="card border-0 shadow-sm rounded-4 h-100 feature-card" routerLink="/facultylist" tabindex="0" role="link">
                 <div class="card-body text-center py-4">
                     <div class="icon-circle bg-danger bg-opacity-10 mx-auto mb-3">
                         <i class="bi bi-person-workspace fs-3 text-danger"></i>
@@ -86,8 +87,71 @@
             </div>
         </div>
 
+        <ng-container *ngIf="isAdmin()">
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 feature-card" routerLink="/courselist" tabindex="0" role="link">
+                    <div class="card-body text-center py-4">
+                        <div class="icon-circle bg-info bg-opacity-10 mx-auto mb-3">
+                            <i class="bi bi-journal-bookmark fs-3 text-info"></i>
+                        </div>
+                        <h5 class="mb-2">Courses</h5>
+                        <p class="text-muted small mb-0">Manage course records.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 feature-card" routerLink="/subjectlist" tabindex="0" role="link">
+                    <div class="card-body text-center py-4">
+                        <div class="icon-circle bg-secondary bg-opacity-10 mx-auto mb-3">
+                            <i class="bi bi-book fs-3 text-secondary"></i>
+                        </div>
+                        <h5 class="mb-2">Subjects</h5>
+                        <p class="text-muted small mb-0">Manage subject records.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 feature-card" routerLink="/timetablelist" tabindex="0" role="link">
+                    <div class="card-body text-center py-4">
+                        <div class="icon-circle bg-primary bg-opacity-10 mx-auto mb-3">
+                            <i class="bi bi-calendar3 fs-3 text-primary"></i>
+                        </div>
+                        <h5 class="mb-2">Timetables</h5>
+                        <p class="text-muted small mb-0">Manage class timetables.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 feature-card" routerLink="/userlist" tabindex="0" role="link">
+                    <div class="card-body text-center py-4">
+                        <div class="icon-circle bg-success bg-opacity-10 mx-auto mb-3">
+                            <i class="bi bi-person-lines-fill fs-3 text-success"></i>
+                        </div>
+                        <h5 class="mb-2">Users</h5>
+                        <p class="text-muted small mb-0">Manage system users.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 feature-card" routerLink="/rolelist" tabindex="0" role="link">
+                    <div class="card-body text-center py-4">
+                        <div class="icon-circle bg-danger bg-opacity-10 mx-auto mb-3">
+                            <i class="bi bi-shield-lock fs-3 text-danger"></i>
+                        </div>
+                        <h5 class="mb-2">Roles</h5>
+                        <p class="text-muted small mb-0">Manage access roles.</p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
     </div>
 
+    </div>
 </div>
 <app-footer></app-footer>
 

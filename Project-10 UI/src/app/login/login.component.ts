@@ -25,35 +25,45 @@ export class LoginComponent {
       if (params['message']) {
         this.form.message = params['message'];
       }
-      if (params['errorMsg']) {
-        this.form.errorMsg = params['errorMsg'];
+      if (params['errorMessage'] || params['errorMsg']) {
+        this.form.error = true;
+        this.form.message = params['errorMessage'] || params['errorMsg'];
       }
     });
   }
 
   signIn() {
-    var _self = this;
+    const _self = this;
+    _self.form.message = '';
+    _self.form.error = false;
+    _self.form.inputerror = {};
+
     this.httpService.post(this.endpoint, this.form.data, function (res: any) {
+      const result = res?.result || {};
 
-      _self.form.message = '';
-      _self.form.inputerror = {};
-
-
-
-      _self.form.error = !res.success;
-      if (_self.form.error && res.result.inputerror) {
-        _self.form.inputerror = res.result.inputerror;
+      _self.form.error = !res?.success;
+      if (_self.form.error) {
+        _self.form.inputerror = result.inputerror || {};
+        _self.form.message = result.message || res.message ;
+        return;
       }
 
-      if (res.success) {
-        localStorage.setItem("loginId", res.result.loginId);
-        localStorage.setItem("role", res.result.role);
-        localStorage.setItem("fname", res.result.fname);
-        localStorage.setItem("lname", res.result.lname);
-         localStorage.setItem("userId", res.result.data.id);
+      localStorage.setItem("loginId", result.loginId);
+      localStorage.setItem("role", result.role);
+      localStorage.setItem("fname", result.fname);
+      localStorage.setItem("lname", result.lname);
+      localStorage.setItem("userId", result.data.id);
+      localStorage.setItem('token' , 'Bearer ' + res.result.token );
 
-         _self.router.navigateByUrl('dashboard');
-      }
+      _self.form.message = result.message || res.message || 'Login successful';
+      _self.router.navigateByUrl('dashboard');
+    }, function (error: any) {
+      const errorBody = error?.error || {};
+      const result = errorBody.result || {};
+
+      _self.form.error = true;
+      _self.form.inputerror = result.inputerror || errorBody.inputerror || {};
+      _self.form.message = result.message || errorBody.message || errorBody.error || 'Unable to sign in. Please check your login ID and password.';
     });
   }
 

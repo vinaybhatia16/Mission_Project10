@@ -1,0 +1,38 @@
+.feature-card {
+	cursor: pointer;
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+	border: 1px solid rgba(255,255,255,0.08) !important;
+	background: rgba(17, 29, 45, 0.82) !important;
+	backdrop-filter: blur(2px);
+}
+
+.feature-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 16px 28px rgba(8, 17, 27, 0.22) !important;
+	border-color: rgba(247, 200, 115, 0.35) !important;
+}
+
+.dashboard-page {
+	min-height: 100vh;
+	background-image: linear-gradient(rgba(5, 14, 24, 0.68), rgba(5, 14, 24, 0.72)),
+		url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	padding: 24px 0 40px;
+}
+
+.dashboard-hero {
+	max-width: 1050px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	backdrop-filter: blur(2px);
+	background: linear-gradient(135deg, rgba(13,33,55,0.85) 0%, rgba(21,101,192,0.82) 55%, rgba(35,127,131,0.75) 100%) !important;
+}
+
+.feature-card:focus-visible {
+	outline: 3px solid #4d9de0;
+	outline-offset: 3px;
+}

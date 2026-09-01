@@ -39,7 +39,6 @@ public class JWTRequestFilter extends OncePerRequestFilter {
 
 		if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
 
-			System.out.println("JWT Token ======>>>>> iiiiinnnnnn");
 
 			String jwtToken = authorizationHeader.substring(7);
 

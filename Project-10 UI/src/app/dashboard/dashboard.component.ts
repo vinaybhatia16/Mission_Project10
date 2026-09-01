@@ -11,4 +11,9 @@ export class DashboardComponent {
     const firstName = localStorage.getItem('fname');
     return firstName !== 'null' && firstName !== null;
   }
+
+  isAdmin(): boolean {
+    const role = localStorage.getItem('role');
+    return role?.trim().toLowerCase() === 'admin';
+  }
 }

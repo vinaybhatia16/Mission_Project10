@@ -20,6 +20,7 @@ import { TimetableListComponent } from './timetable/timetablelist.component';
 import { UserListComponent } from './user/userlist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './login/signup.component';
 
 
 
@@ -151,6 +152,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   }
 ];
 

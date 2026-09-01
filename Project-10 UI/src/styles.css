@@ -1,11 +1,16 @@
 /* Shared Bootstrap-friendly foundation for the legacy CRUD screens. */
 :root {
-	--ors-ink: #17324d;
-	--ors-blue: #2563a6;
+	--ors-ink: #edf4fa;
+	--ors-blue: #2d6ea7;
+	--ors-blue-soft: #4d9de0;
+	--ors-gold: #f7c873;
+	--ors-teal: #237f83;
 	--ors-coral: #f4745f;
-	--ors-surface: #ffffff;
-	--ors-page: #f4f7fb;
-	--ors-border: #dbe4ee;
+	--ors-surface: #1a2334;
+	--ors-page: #0c1420;
+	--ors-panel: #111d2d;
+	--ors-border: #2f4257;
+	--ors-gradient: linear-gradient(135deg, #0d2137 0%, #225d83 60%, #237f83 100%);
 }
 
 html,
@@ -15,9 +20,26 @@ body {
 
 body {
 	margin: 0;
-	background: radial-gradient(circle at 90% 0%, rgba(247, 200, 115, .12), transparent 24rem), var(--ors-page);
+	background: radial-gradient(circle at 90% 0%, rgba(77, 157, 224, .14), transparent 24rem),
+		linear-gradient(180deg, rgba(12, 20, 32, 1) 0%, rgba(16, 24, 32, 1) 100%);
 	color: var(--ors-ink);
 	font-family: 'Outfit', 'Trebuchet MS', sans-serif;
+}
+
+.card,
+.card-body {
+	color: var(--ors-ink);
+	background-color: var(--ors-surface);
+	border-color: var(--ors-border) !important;
+}
+
+.card-header {
+	background: var(--ors-gradient) !important;
+	border-color: var(--ors-border) !important;
+}
+
+.text-muted {
+	color: #aebdcc !important;
 }
 
 app-root {
@@ -71,7 +93,7 @@ app-root > router-outlet ~ * > div[align="center"] td {
 
 app-root > router-outlet ~ * > div[align="center"] th {
 	color: var(--ors-ink);
-	background: #edf3f9;
+	background: #263646;
 	font-size: .875rem;
 	font-weight: 700;
 }
@@ -88,8 +110,8 @@ app-root > router-outlet ~ * > div[align="center"] select {
 	min-height: 2.5rem;
 	padding: .5rem .75rem;
 	color: var(--ors-ink);
-	background: #fff;
-	border: 1px solid #b9c8d8;
+	background: #131e29;
+	border: 1px solid #526273;
 	border-radius: .375rem;
 	transition: border-color .15s ease, box-shadow .15s ease;
 }
@@ -102,23 +124,68 @@ app-root > router-outlet ~ * > div[align="center"] select:focus {
 }
 
 app-root > router-outlet ~ * > div[align="center"] button,
-app-root > router-outlet ~ * > div[align="center"] a[style*="cursor"] {
+app-root > router-outlet ~ * > div[align="center"] a[style*="cursor"],
+.btn-primary,
+.btn-success,
+.btn-danger,
+.btn-outline-primary,
+.btn-outline-secondary {
 	display: inline-block;
 	padding: .5rem 1rem;
-	color: #fff;
-	background: var(--ors-blue);
-	border: 1px solid var(--ors-blue);
 	border-radius: .375rem;
 	font-weight: 600;
 	text-decoration: none;
 	cursor: pointer;
-	transition: background-color .15s ease, transform .15s ease;
+	transition: background-color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+.btn-primary,
+app-root > router-outlet ~ * > div[align="center"] button {
+	color: #fff;
+	background: linear-gradient(135deg, #17324d 0%, #225d83 100%);
+	border: 1px solid #17324d;
+}
+
+.btn-primary:hover,
+app-root > router-outlet ~ * > div[align="center"] button:hover {
+	background: linear-gradient(135deg, #16304a 0%, #1f4f7d 100%);
+	border-color: #16304a;
+	transform: translateY(-1px);
+	box-shadow: 0 8px 16px rgba(13, 33, 55, .18);
+}
+
+.btn-outline-primary {
+	color: var(--ors-blue-soft);
+	background: transparent;
+	border-color: var(--ors-blue-soft);
+}
+
+.btn-outline-secondary {
+	color: var(--ors-ink);
+	background: rgba(255,255,255,.04);
+	border-color: var(--ors-border);
+}
+
+.btn-success {
+	background: linear-gradient(135deg, #1f6f6b, #237f83);
+	border-color: #1f6f6b;
+	color: #fff;
+}
+
+.btn-danger {
+	background: linear-gradient(135deg, #b4534d, #d0674a);
+	border-color: #b4534d;
+	color: #fff;
+}
+
+app-root > router-outlet ~ * > div[align="center"] a[style*="cursor"] {
+	color: #fff;
+	background: var(--ors-blue);
+	border: 1px solid var(--ors-blue);
 }
 
 app-root > router-outlet ~ * > div[align="center"] button:hover,
 app-root > router-outlet ~ * > div[align="center"] a[style*="cursor"]:hover {
-	background: #1d4f86;
-	border-color: #1d4f86;
 	transform: translateY(-1px);
 }
 
@@ -212,7 +279,9 @@ app-root > router-outlet ~ * > div[align="center"]:has(> h1 + table) textarea {
 	width: 100% !important;
 	min-height: 6rem;
 	padding: .5rem .75rem;
-	border: 1px solid #b9c8d8;
+	color: var(--ors-ink);
+	background: #131e29;
+	border: 1px solid #526273;
 	border-radius: .375rem;
 }
 
@@ -296,6 +365,125 @@ app-dashboard .feature-card {
 	border: 1px solid var(--ors-border) !important;
 	border-radius: 1rem !important;
 	transition: transform .2s ease, box-shadow .2s ease;
+}
+
+app-dashboard .feature-card,
+app-dashboard .feature-card .card-body {
+	color: var(--ors-ink);
+	background: var(--ors-surface) !important;
+}
+
+app-root .form-control,
+app-root .form-select {
+	color: var(--ors-ink);
+	background-color: #131e29;
+	border-color: #526273;
+}
+
+app-root .form-control::placeholder {
+	color: #91a2b4;
+}
+
+app-root .form-control:focus,
+app-root .form-select:focus {
+	color: var(--ors-ink);
+	background-color: #172330;
+	border-color: var(--ors-blue);
+	box-shadow: 0 0 0 .2rem rgba(77, 157, 224, .2);
+}
+
+app-root .table {
+	--bs-table-color: var(--ors-ink);
+	--bs-table-bg: transparent;
+	--bs-table-border-color: var(--ors-border);
+}
+
+/* Keep every list-page action readable against the dark theme. */
+app-college-list button,
+app-course-list button,
+app-faculty-list button,
+app-marksheet-list button,
+app-role-list button,
+app-student-list button,
+app-subject-list button,
+app-timetable-list button,
+app-user-list button,
+app-college-list a[style*="cursor"],
+app-course-list a[style*="cursor"],
+app-faculty-list a[style*="cursor"],
+app-marksheet-list a[style*="cursor"],
+app-role-list a[style*="cursor"],
+app-student-list a[style*="cursor"],
+app-subject-list a[style*="cursor"],
+app-timetable-list a[style*="cursor"],
+app-user-list a[style*="cursor"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.35rem;
+	padding: .5rem 1rem;
+	color: #f5f9fc !important;
+	background: #245477 !important;
+	border: 1px solid #4d86ae !important;
+	border-radius: .4rem;
+	font-size: .875rem;
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+app-college-list button:hover,
+app-course-list button:hover,
+app-faculty-list button:hover,
+app-marksheet-list button:hover,
+app-role-list button:hover,
+app-student-list button:hover,
+app-subject-list button:hover,
+app-timetable-list button:hover,
+app-user-list button:hover,
+app-college-list a[style*="cursor"]:hover,
+app-course-list a[style*="cursor"]:hover,
+app-faculty-list a[style*="cursor"]:hover,
+app-marksheet-list a[style*="cursor"]:hover,
+app-role-list a[style*="cursor"]:hover,
+app-student-list a[style*="cursor"]:hover,
+app-subject-list a[style*="cursor"]:hover,
+app-timetable-list a[style*="cursor"]:hover,
+app-user-list a[style*="cursor"]:hover {
+	background: #34739b !important;
+	border-color: #72b1d7 !important;
+	transform: translateY(-1px);
+}
+
+app-college-list button:disabled,
+app-course-list button:disabled,
+app-faculty-list button:disabled,
+app-marksheet-list button:disabled,
+app-role-list button:disabled,
+app-student-list button:disabled,
+app-subject-list button:disabled,
+app-timetable-list button:disabled,
+app-user-list button:disabled {
+	opacity: .45;
+	background: #334756 !important;
+	border-color: #526273 !important;
+	cursor: not-allowed;
+	transform: none;
+}
+
+app-college-list button:nth-of-type(3),
+app-course-list button:nth-of-type(3),
+app-faculty-list button:nth-of-type(3),
+app-marksheet-list button:nth-of-type(3),
+app-role-list .btn-danger,
+app-student-list button:nth-of-type(3),
+app-subject-list button:nth-of-type(3),
+app-timetable-list button:nth-of-type(3),
+app-user-list button:nth-of-type(3) {
+	background: #873f4b !important;
+	border-color: #bb6470 !important;
 }
 
 app-dashboard .feature-card:hover {

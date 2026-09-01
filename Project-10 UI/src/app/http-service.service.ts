@@ -11,11 +11,15 @@ export class HttpServiceService {
 
   }
 
-  post(endpoint: any, bean: any, callback: any) {
+  post(endpoint: any, bean: any, callback: any, errorCallback?: any) {
     return this.httpClient.post(endpoint, bean, {withCredentials : true}).subscribe((data) => {
       callback(data);
     }, (error) => {
-      this.handleError(error);
+      if (errorCallback) {
+        errorCallback(error);
+      } else {
+        this.handleError(error);
+      }
     });
   }
 
