@@ -15,8 +15,7 @@ public class UserRegistrationForm {
 	@NotEmpty(message = "Last Name is required")
 	private String lastName;
 
-	@Email
-	@NotEmpty(message = "Login Id is required")
+	
 	private String loginId;
 
 	@NotEmpty(message = "Password is required")

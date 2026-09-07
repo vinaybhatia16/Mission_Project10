@@ -37,47 +37,64 @@ public class JWTRequestFilter extends OncePerRequestFilter {
 
 		System.out.println("JWT Token ======>>>>> " + authorizationHeader);
 
-		if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+		try {
+			if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
 
 
-			String jwtToken = authorizationHeader.substring(7);
+				String jwtToken = authorizationHeader.substring(7);
 
-			try {
+				try {
 
-				String loginId = jwtUtil.extractLoginId(jwtToken);
+					String loginId = jwtUtil.extractLoginId(jwtToken);
 
-				if (!jwtUtil.validateToken(jwtToken, loginId)) {
-					throw new Exception("Invalid JWT token");
+					if (!jwtUtil.validateToken(jwtToken, loginId)) {
+						throw new Exception("Invalid JWT token");
+					}
+
+					if (loginId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+
+						UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(loginId);
+
+						UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+								userDetails, null, userDetails.getAuthorities());
+
+						authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+						SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+					}
+
+					UserDTO dto = new UserDTO();
+					dto.setLoginId(loginId);
+
+					// Extract userId and role from JWT token
+					Long userId = jwtUtil.extractUserId(jwtToken);
+					String role = jwtUtil.extractRole(jwtToken);
+					
+					if (userId != null) {
+						dto.setId(userId);
+					}
+					
+					if (role != null) {
+						dto.setRoleName(role);
+					}
+
+					System.out.println("request filter: " + dto.getLoginId() + " with userId: " + dto.getId());
+
+					UserContext context = new UserContext(dto);
+
+					// ThreadLocal me set
+					UserContextHolder.setContext(context);
+
+				} catch (Exception e) {
+					response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+					response.getWriter().write("Token is invalid... plz login again..!!");
+					return;
 				}
-
-				if (loginId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-
-					UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(loginId);
-
-					UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-							userDetails, null, userDetails.getAuthorities());
-
-					authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
-					SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-				}
-
-				UserDTO dto = new UserDTO();
-				dto.setLoginId(loginId);
-
-				System.out.println("request filter: " + dto.getLoginId());
-
-				UserContext context = new UserContext(dto);
-
-				// ThreadLocal me set
-				UserContextHolder.setContext(context);
-
-			} catch (Exception e) {
-				response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-				response.getWriter().write("Token is invalid... plz login again..!!");
-				return;
 			}
+			filterChain.doFilter(request, response);
+		} finally {
+			// Clear ThreadLocal to prevent memory leak
+			UserContextHolder.clear();
 		}
-		filterChain.doFilter(request, response);
 	}
 }

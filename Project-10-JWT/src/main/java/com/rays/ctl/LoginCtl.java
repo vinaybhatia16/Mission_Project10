@@ -28,6 +28,10 @@ public class LoginCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 
 	@Autowired
 	private JWTUtil jwtUtil;
+	
+
+	@Autowired
+	private UserServiceInt userService;
 
 	@PostMapping("login")
 	public ORSResponse login(@RequestBody @Valid LoginForm form, BindingResult bindingResult) throws Exception {
@@ -118,17 +122,18 @@ public class LoginCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 			return res;
 		}
 
-		UserDTO fDto = baseService.forgotPassword(form.getLoginId());
+		boolean fDto = baseService.forgotPassword(form.getLoginId());
 
-		if (fDto == null) {
-			res.setSuccess(false);
-			res.addMessage("LoginId / Email not found.");
-			return res;
-		} else {
+		boolean flag = userService.forgotPassword(form.getLoginId());
+
+		if (flag == true) {
 			res.setSuccess(true);
-			res.addMessage("Hello " + fDto.getFirstName() + " " + fDto.getLastName()
-					+ "..! Your password has been sent on your email.");
+			res.addMessage("Password sent to your email");
+		} else {
+			res.setSuccess(false);
+			res.addMessage("Login Id not found");
 		}
+
 		return res;
 	}
 }

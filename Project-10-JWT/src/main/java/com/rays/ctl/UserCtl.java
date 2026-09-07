@@ -50,7 +50,22 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 			return res;
 		}
 
+		// Validate userContext and userId
+		if (userContext == null || userContext.getUserId() == null || userContext.getUserId() <= 0) {
+			res.setSuccess(false);
+			res.addMessage("User context is invalid. Please login again.");
+			return res;
+		}
+
+		System.out.println("User ID in myProfile: " + userContext.getUserId());
 		UserDTO dto = baseService.findById(userContext.getUserId(), userContext);
+		
+		if (dto == null) {
+			res.setSuccess(false);
+			res.addMessage("User profile not found.");
+			return res;
+		}
+		
 		dto.setFirstName(form.getFirstName());
 		dto.setLastName(form.getLastName());
 		dto.setDob(form.getDob());
@@ -58,7 +73,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 		dto.setGender(form.getGender());
 
 		baseService.update(dto, userContext);
-		
+
 		res.setSuccess(true);
 		res.addMessage("Your Profile updated successfully..!!");
 
