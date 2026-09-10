@@ -15,5 +15,7 @@ public interface UserServiceInt extends BaseServiceInt<UserDTO> {
 	public boolean forgotPassword(String loginId);
 
 	public UserDTO changePassword(String loginId, String oldPassword, String newPassword, UserContext userContext);
+	
+
 
 }

@@ -1,0 +1,66 @@
+
+
+<div align="center">
+    <h1 align="center" style="margin-bottom: 5px; color: navy">{{ 'Navigation.Profile' | translate }}</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left">{{ 'Common.FirstName' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" [placeholder]="'Placeholders.EnterFirstName' | translate"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'Common.LastName' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" [placeholder]="'Placeholders.EnterLastName' | translate"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.lastName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'Common.LoginId' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" readonly [placeholder]="'Placeholders.EnterLoginId' | translate"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'Common.DateOfBirth' | translate }}<span style="color: red">*</span></th>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" [placeholder]="'Placeholders.SelectDateOfBirth' | translate" style="width: 97%;"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'Common.Gender' | translate }}<span style="color: red">*</span></th>
+            <td>
+                <select name="gender" [(ngModel)]="form.data.gender" style="width: 170px;">
+                    <option value="">{{ 'Options.Select' | translate }}</option>
+                    <option value="Male">{{ 'Options.Male' | translate }}</option>
+                    <option value="Female">{{ 'Options.Female' | translate }}</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.gender}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'Common.Mobile' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10" [placeholder]="'Placeholders.EnterMobile' | translate"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.phone}}</td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="myProfile()">{{ 'Buttons.Save' | translate }}</button> &nbsp;
+                <button (click)="forward('/userlist')">{{ 'Buttons.List' | translate }}</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<app-footer></app-footer>

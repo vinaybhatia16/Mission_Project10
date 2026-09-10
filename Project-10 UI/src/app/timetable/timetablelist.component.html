@@ -1,7 +1,7 @@
     
 
 <div align="center">
-    <h1 align="center" style="margin-bottom: 5px; color: navy;">Timetable List</h1>
+    <h1 align="center" style="margin-bottom: 5px; color: navy;">{{ 'Tables.TimetableList' | translate }}</h1>
 
     <div style="height: 20px; margin-bottom: 10px; text-align: center;">
         <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
@@ -12,11 +12,11 @@
         <table style="width: 100%">
             <tr>
                 <td align="center">
-                    <label><b>Course Name: </b></label>
-                    <input type="text" name="courseName" [(ngModel)]="form.searchParams.courseName" placeholder="Enter Course Name">&nbsp;
+                    <label><b>{{ 'Common.Course' | translate }} {{ 'Common.Name' | translate }}: </b></label>
+                    <input type="text" name="courseName" [(ngModel)]="form.searchParams.courseName" [placeholder]="'Placeholders.EnterCourseName' | translate">&nbsp;
 
-                    <button (click)="search()">search</button>&nbsp;
-                    <button (click)="reset()">reset</button>
+                    <button (click)="search()">{{ 'Buttons.Search' | translate }}</button>&nbsp;
+                    <button (click)="reset()">{{ 'Buttons.Reset' | translate }}</button>
                 </td>
             </tr>
         </table>
@@ -26,14 +26,14 @@
         <table border="1" style="width: 100%; border: groove;">
             <tr style="background-color: #e1e6f1e3;">
                 <th><input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" /></th>
-                <th>S.No</th>
-                <th>Course</th>
-                <th>Subject</th>
-                <th>Exam Date</th>
-                <th>Exam Time</th>
-                <th>Semester</th>
-                <th>Description</th>
-                <th>Edit</th>
+                <th>{{ 'Common.SNo' | translate }}</th>
+                <th>{{ 'Common.Course' | translate }}</th>
+                <th>{{ 'Common.Subject' | translate }}</th>
+                <th>{{ 'Common.ExamDate' | translate }}</th>
+                <th>{{ 'Common.ExamTime' | translate }}</th>
+                <th>{{ 'Common.Semester' | translate }}</th>
+                <th>{{ 'Common.Description' | translate }}</th>
+                <th>{{ 'Buttons.Edit' | translate }}</th>
             </tr>
 
             <tr align="center" *ngFor="let m of form.list; let i = index">
@@ -45,7 +45,7 @@
                 <td>{{m.examTime}}</td>
                 <td>{{m.semester}}</td>
                 <td>{{m.description}}</td>
-                <td><a (click)="forward( '/timetable/' +  m.id)" style="cursor: pointer;">Edit</a></td>
+                <td><a (click)="forward( '/timetable/' +  m.id)" style="cursor: pointer;">{{ 'Buttons.Edit' | translate }}</a></td>
             </tr>
         </table>
 
@@ -53,17 +53,17 @@
 
         <table style="width: 100%">
             <tr>
-                <td style="width: 25%"><button (click)="previous()" [disabled]="form.pageNo == 0">previous</button></td>
-                <td align="center" style="width: 25%"><button (click)="forward('/timetable')">new</button></td>
-                <td align="center" style="width: 25%"><button (click)="deleteMany()">delete</button></td>
-                <td style="width: 25%" align="right"><button (click)="next()" [disabled]="form.nextListSize == 0">next</button></td>
+                <td style="width: 25%"><button (click)="previous()" [disabled]="form.pageNo == 0">{{ 'Buttons.Previous' | translate }}</button></td>
+                <td align="center" style="width: 25%"><button (click)="forward('/timetable')">{{ 'Buttons.New' | translate }}</button></td>
+                <td align="center" style="width: 25%"><button (click)="deleteMany()">{{ 'Buttons.Delete' | translate }}</button></td>
+                <td style="width: 25%" align="right"><button (click)="next()" [disabled]="form.nextListSize == 0">{{ 'Buttons.Next' | translate }}</button></td>
             </tr>
         </table>
     </div>
 
     <br>
 
-    <div *ngIf="form.list.length == 0"><button (click)="reset()">Back</button></div>
+    <div *ngIf="form.list.length == 0"><button (click)="reset()">{{ 'Buttons.Back' | translate }}</button></div>
 </div>
 
 <app-footer></app-footer>

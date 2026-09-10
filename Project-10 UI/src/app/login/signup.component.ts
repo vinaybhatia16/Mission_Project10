@@ -22,7 +22,10 @@ export class SignupComponent {
 
   signUp() {
     var _self = this;
-    this.httpService.post(this.endpoint, this.form.data, function (res: any) {
+    const payload = { ...this.form.data };
+    delete payload.roleId;
+
+    this.httpService.post(this.endpoint, payload, function (res: any) {
 
       _self.form.message = '';
       _self.form.inputerror = {};

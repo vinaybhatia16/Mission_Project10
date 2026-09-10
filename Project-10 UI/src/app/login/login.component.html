@@ -4,9 +4,9 @@
             <div class="login-brand-mark">
                 <i class="bi bi-mortarboard-fill"></i>
             </div>
-            <p class="login-kicker">Rays Technologies</p>
-            <h1>Results that move education forward.</h1>
-            <p class="login-intro-copy">A focused workspace for managing academic records, people, and progress in one place.</p>
+            <p class="login-kicker">{{ 'Dashboard.PoweredBy' | translate }}</p>
+            <h1>{{ 'Auth.ResultsTitle' | translate }}</h1>
+            <p class="login-intro-copy">{{ 'Auth.ResultsDescription' | translate }}</p>
             
             <!-- Education Illustration -->
             <svg class="login-hero-illustration" viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg">
@@ -57,9 +57,9 @@
 
         <div class="login-panel">
             <div class="login-panel-heading">
-                <p class="text-uppercase text-primary fw-bold small mb-2">Online Result System</p>
-                <h2>Welcome back</h2>
-                <p class="text-secondary mb-0">Sign in to continue to your workspace.</p>
+                <p class="text-uppercase text-primary fw-bold small mb-2">{{ 'Auth.OnlineResultSystem' | translate }}</p>
+                <h2>{{ 'Auth.WelcomeBack' | translate }}</h2>
+                <p class="text-secondary mb-0">{{ 'Auth.SignInContinue' | translate }}</p>
             </div>
 
             <div class="alert alert-success" *ngIf="!form.error && form.message">{{ form.message }}</div>
@@ -67,30 +67,30 @@
 
             <div class="login-form">
                 <div class="mb-3">
-                    <label class="form-label" for="loginId">Login ID</label>
+                    <label class="form-label" for="loginId">{{ 'Common.LoginId' | translate }}</label>
                     <div class="input-group">
                         <span class="input-group-text"><i class="bi bi-person"></i></span>
-                        <input id="loginId" type="text" class="form-control" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter your login ID">
+                        <input id="loginId" type="text" class="form-control" name="loginId" [(ngModel)]="form.data.loginId" [placeholder]="'Auth.EnterLoginId' | translate">
                     </div>
                     <div class="text-danger small mt-1" *ngIf="form.inputerror.loginId">{{form.inputerror.loginId}}</div>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label" for="password">Password</label>
+                    <label class="form-label" for="password">{{ 'Password' | translate }}</label>
                     <div class="input-group">
                         <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" [(ngModel)]="form.data.password" placeholder="Enter your password">
+                        <input id="password" type="password" class="form-control" name="password" [(ngModel)]="form.data.password" [placeholder]="'Auth.EnterPassword' | translate">
                     </div>
                     <div class="text-danger small mt-1" *ngIf="form.inputerror.password">{{form.inputerror.password}}</div>
                 </div>
 
                 <button class="btn btn-primary w-100 py-2" (click)="signIn()">
-                    Sign in <i class="bi bi-arrow-right ms-2"></i>
+                    {{ 'Sign In' | translate }} <i class="bi bi-arrow-right ms-2"></i>
                 </button>
 
                 <div class="login-secondary-actions">
-                    <a [routerLink]="['/forgotpassword']">Forgot password?</a>
-                    <button class="btn btn-link p-0" (click)="signUp()">signup</button>
+                    <a [routerLink]="['/forgotpassword']">{{ 'Auth.ForgotPassword' | translate }}</a>
+                    <button class="btn btn-link p-0" (click)="signUp()">{{ 'Sign Up' | translate }}</button>
                 </div>
             </div>
         </div>

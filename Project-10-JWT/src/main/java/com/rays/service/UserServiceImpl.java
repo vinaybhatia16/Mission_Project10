@@ -143,4 +143,5 @@ public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implem
 			return null;
 		}
 	}
+
 }

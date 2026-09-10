@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpServiceService } from '../http-service.service';
 import { ServiceLocatorService } from '../service-locator.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,14 +11,25 @@ import { ServiceLocatorService } from '../service-locator.service';
 export class NavbarComponent {
 
   endpoint = "http://localhost:8080/Auth/";
+  menuOpen = false;
+  selectedLocale = localStorage.getItem("locale") || 'en';
 
   form: any = {
     data: {},
     message : ''
   }
 
-  constructor(private httpService: HttpServiceService, private router: Router, private servicelocator: ServiceLocatorService) {
+  constructor(private translate: TranslateService,private httpService: HttpServiceService, private router: Router, private servicelocator: ServiceLocatorService) {
+ const locale = localStorage.getItem("locale") || 'en';
+    translate.setDefaultLang(locale);
+    translate.use(locale);
 
+  }
+
+    changeLocale(locale: string) {
+      this.selectedLocale = locale;
+    localStorage.setItem("locale", locale);
+    this.translate.use(locale);
   }
 
   isLogin() {
@@ -45,5 +57,9 @@ export class NavbarComponent {
   forward() {
     this.form.data.userId = localStorage.getItem("userId");
     this.servicelocator.forward("/myprofile/" + this.form.data.userId);
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
   }
 }

@@ -10,12 +10,12 @@
 
          <h2 class="mb-0 fw-bold" *ngIf="!form.data.id">
             <i class="bi bi-shield-plus me-2"></i>
-            Add Role
+            {{ 'Forms.Add' | translate:{entity: ('Common.Role' | translate)} }}
          </h2>
 
          <h2 class="mb-0 fw-bold" *ngIf="form.data.id > 0">
             <i class="bi bi-pencil-square me-2"></i>
-            Update Role
+            {{ 'Forms.Update' | translate:{entity: ('Common.Role' | translate)} }}
          </h2>
 
       </div>
@@ -49,7 +49,7 @@
          <div class="mb-3">
 
             <label class="form-label fw-bold">
-               Name
+               {{ 'Common.Name' | translate }}
                <span class="text-danger">*</span>
             </label>
 
@@ -58,7 +58,7 @@
                name="name"
                class="form-control"
                [(ngModel)]="form.data.name"
-               placeholder="Enter Role Name">
+               [placeholder]="'Placeholders.EnterRoleName' | translate">
 
             <div class="text-danger small mt-1"
                *ngIf="form.inputerror.name">
@@ -74,7 +74,7 @@
          <div class="mb-4">
 
             <label class="form-label fw-bold">
-               Description
+               {{ 'Common.Description' | translate }}
                <span class="text-danger">*</span>
             </label>
 
@@ -83,7 +83,7 @@
                class="form-control"
                [(ngModel)]="form.data.description"
                rows="4"
-               placeholder="Enter Short Description"
+               [placeholder]="'Placeholders.EnterDescription' | translate"
                style="resize: none;"></textarea>
 
             <div class="text-danger small mt-1"
@@ -105,7 +105,7 @@
                (click)="submit()">
 
                <i class="bi bi-save me-2"></i>
-               Save
+               {{ 'Buttons.Save' | translate }}
 
             </button>
 

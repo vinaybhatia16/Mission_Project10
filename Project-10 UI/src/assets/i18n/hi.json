@@ -1,0 +1,102 @@
+{
+    "Login": "लॉगिन",
+    "Sign In": "साइन इन",
+    "Sign Up": "साइन अप",
+    "Forget my password?": "क्या आप अपना पासवर्ड भूल गए?",
+    "Login Id": "लॉगिन",
+    "Password": "पासवर्ड",
+    "UserRegistration": "उपयोगकर्ता पंजीकरण",
+    "FirstName": "पहला नाम",
+    "LastName": "अंतिम नाम",
+    "LoginId": "लॉगिन आईडी",
+    "Password": "पासवर्ड",
+    "DateOfBirth": "जन्म तिथि",
+    "Gender": "लिंग",
+    "Mobile": "मोबाइल",
+    "Buttons": {
+        "SignUp": "साइन अप",
+        "Reset": "रीसेट"
+    },
+    "GenderOptions": {
+        "Select": "------------चुनें------------",
+        "Male": "पुरुष",
+        "Female": "महिला"
+    },
+    "Greetings": {
+        "HiUser": "नमस्ते, {{name}} ( {{role}} )",
+        "HiGuest": "नमस्ते, अतिथि"
+    },
+    "Links": {
+        "MyProfile": "मेरा प्रोफ़ाइल",
+        "ChangePassword": "पासवर्ड बदलें",
+        "AddUser": "उपयोगकर्ता जोड़ें",
+        "UserList": "उपयोगकर्ता सूची",
+        "AddRole": "भूमिका जोड़ें",
+        "RoleList": "भूमिका सूची",
+        "AddCollege": "कॉलेज जोड़ें",
+        "CollegeList": "कॉलेज सूची",
+        "AddStudent": "छात्र जोड़ें",
+        "StudentList": "छात्र सूची",
+        "AddMarksheet": "मार्कशीट जोड़ें",
+        "MarksheetList": "मार्कशीट सूची",
+        "AddCourse": "कोर्स जोड़ें",
+        "CourseList": "कोर्स सूची",
+        "AddSubject": "विषय जोड़ें",
+        "SubjectList": "विषय सूची",
+        "AddTimetable": "टाइमटेबल जोड़ें",
+        "TimetableList": "टाइमटेबल सूची",
+        "AddFaculty": "फैकल्टी जोड़ें",
+        "FacultyList": "फैकल्टी सूची",
+        "Logout": "लॉगआउट",
+        "Dashboard": "डैशबोर्ड",
+        "Login": "लॉगिन"
+    },
+    "LocaleSelect": {
+        "Select": "-------चुनें-------",
+        "English": "अंग्रेज़ी",
+        "Hindi": "हिंदी"
+    },
+    "Common": { "Select": "------------ चुनें ------------", "Name": "नाम", "Description": "विवरण", "Address": "पता", "State": "राज्य", "City": "शहर", "Phone": "फोन", "PhoneNo": "फोन नंबर", "Email": "ईमेल", "EmailId": "ईमेल आईडी", "Qualification": "योग्यता", "College": "कॉलेज", "Course": "कोर्स", "Subject": "विषय", "Student": "छात्र", "Faculty": "फैकल्टी", "Role": "भूमिका", "Status": "स्थिति", "Gender": "लिंग", "DateOfBirth": "जन्म तिथि", "FirstName": "पहला नाम", "LastName": "अंतिम नाम", "LoginId": "लॉगिन आईडी", "Mobile": "मोबाइल", "AlternateMobile": "वैकल्पिक मोबाइल", "EnrolNo": "नामांकन नंबर", "RollNo": "रोल नंबर", "SNo": "क्रमांक", "Image": "छवि", "Duration": "अवधि", "Semester": "सेमेस्टर", "ExamDate": "परीक्षा तिथि", "ExamTime": "परीक्षा समय", "Physics": "भौतिकी", "Chemistry": "रसायन विज्ञान", "Maths": "गणित", "Marksheet": "मार्कशीट", "Year": "वर्ष", "Years": "वर्ष", "Active": "सक्रिय", "Inactive": "निष्क्रिय", "Male": "पुरुष", "Female": "महिला" },
+    "Buttons": { "Save": "सहेजें", "Search": "खोजें", "New": "नया", "Delete": "हटाएं", "Next": "अगला", "Previous": "पिछला", "Back": "वापस", "Continue": "जारी रखें", "Edit": "संपादित करें", "List": "सूची", "SignUp": "साइन अप", "Reset": "रीसेट" },
+    "Placeholders": { "EnterFirstName": "पहला नाम दर्ज करें", "EnterLastName": "अंतिम नाम दर्ज करें", "EnterLoginId": "लॉगिन आईडी दर्ज करें", "EnterPassword": "पासवर्ड दर्ज करें", "EnterMobile": "मोबाइल नंबर दर्ज करें", "EnterAlternateMobile": "वैकल्पिक मोबाइल नंबर दर्ज करें", "EnterEmail": "ईमेल आईडी दर्ज करें", "EnterQualification": "योग्यता दर्ज करें", "EnterAddress": "पता दर्ज करें", "EnterState": "राज्य दर्ज करें", "EnterCity": "शहर दर्ज करें", "EnterPhone": "फोन नंबर दर्ज करें", "EnterRoleName": "भूमिका का नाम दर्ज करें", "EnterCourseName": "कोर्स का नाम दर्ज करें", "EnterCollegeName": "कॉलेज का नाम दर्ज करें", "EnterSubjectName": "विषय का नाम दर्ज करें", "EnterStudentName": "छात्र का नाम दर्ज करें", "EnterDescription": "संक्षिप्त विवरण दर्ज करें", "SelectDateOfBirth": "जन्म तिथि चुनें", "EnterRollNo": "रोल नंबर दर्ज करें", "EnterPhysicsMarks": "भौतिकी के अंक दर्ज करें", "EnterChemistryMarks": "रसायन विज्ञान के अंक दर्ज करें", "EnterMathsMarks": "गणित के अंक दर्ज करें", "EnterEnrolNo": "नामांकन नंबर दर्ज करें" },
+    "Options": { "Select": "------------ चुनें ------------", "Male": "पुरुष", "Female": "महिला", "Active": "सक्रिय", "Inactive": "निष्क्रिय", "OneYear": "1 वर्ष", "TwoYear": "2 वर्ष", "ThreeYear": "3 वर्ष", "FourYear": "4 वर्ष", "FiveYear": "5 वर्ष", "ExamTimeMorning": "08:00 AM से 11:00 AM", "ExamTimeAfternoon": "12:00 PM से 03:00 PM", "ExamTimeEvening": "04:00 PM से 07:00 PM" },
+    "Navigation": { "Role": "भूमिका", "User": "उपयोगकर्ता", "Academics": "शैक्षणिक", "Marksheet": "मार्कशीट", "Course": "कोर्स", "Subject": "विषय", "Timetable": "टाइमटेबल", "College": "कॉलेज", "Student": "छात्र", "Faculty": "फैकल्टी", "Account": "खाता", "Language": "भाषा", "SelectLanguage": "भाषा चुनें", "Add": "जोड़ें", "List": "सूची", "Profile": "मेरा प्रोफ़ाइल", "Logout": "लॉगआउट", "Guest": "अतिथि", "Dashboard": "डैशबोर्ड", "Login": "लॉगिन", "ToggleNavigation": "नेविगेशन टॉगल करें" },
+    "Dashboard": { "PoweredBy": "रेज़ टेक्नोलॉजीज़ द्वारा संचालित", "Title": "ऑनलाइन रिजल्ट सिस्टम में आपका स्वागत है", "Description": "मार्कशीट, कॉलेज, कोर्स, विषय, छात्र, फैकल्टी और टाइमटेबल एक ही स्थान से प्रबंधित करें।", "Credit": "विनय भाटिया द्वारा डिज़ाइन और विकसित प्रोजेक्ट।", "ManageMarksheets": "छात्र मार्कशीट प्रबंधित करें।", "ManageColleges": "कॉलेज रिकॉर्ड प्रबंधित करें।", "ManageStudents": "छात्र जानकारी प्रबंधित करें।", "ManageFaculty": "फैकल्टी विवरण प्रबंधित करें।", "ManageCourses": "कोर्स रिकॉर्ड प्रबंधित करें।", "ManageSubjects": "विषय रिकॉर्ड प्रबंधित करें।", "ManageTimetables": "कक्षा टाइमटेबल प्रबंधित करें।", "ManageUsers": "सिस्टम उपयोगकर्ता प्रबंधित करें।", "ManageRoles": "प्रवेश भूमिकाएं प्रबंधित करें।" },
+    "Auth": { "WelcomeBack": "वापसी पर स्वागत है", "SignInContinue": "अपने कार्यक्षेत्र में जारी रखने के लिए साइन इन करें।", "OnlineResultSystem": "ऑनलाइन रिजल्ट सिस्टम", "EnterLoginId": "अपनी लॉगिन आईडी दर्ज करें", "EnterPassword": "अपना पासवर्ड दर्ज करें", "ForgotPassword": "पासवर्ड भूल गए?", "ResetPassword": "पासवर्ड रीसेट करें", "BackToLogin": "लॉगिन पर वापस जाएं", "ResultsTitle": "परिणाम शिक्षा को आगे बढ़ाते हैं।", "ResultsDescription": "शैक्षणिक रिकॉर्ड, लोगों और प्रगति को एक ही स्थान पर प्रबंधित करने का केंद्रित कार्यक्षेत्र।" }, "Footer": { "AllRightsReserved": "सर्वाधिकार सुरक्षित" },
+    "Forms": { "Add": "{{entity}} जोड़ें", "Update": "{{entity}} अपडेट करें", "UserRegistration": "उपयोगकर्ता पंजीकरण" },
+    "Tables": { "UserList": "उपयोगकर्ता सूची", "RoleList": "भूमिका सूची", "CollegeList": "कॉलेज सूची", "StudentList": "छात्र सूची", "MarksheetList": "मार्कशीट सूची", "CourseList": "कोर्स सूची", "SubjectList": "विषय सूची", "TimetableList": "टाइमटेबल सूची", "FacultyList": "फैकल्टी सूची" },
+    "UserForm": {
+        "AddUser": "उपयोगकर्ता जोड़ें",
+        "UpdateUser": "उपयोगकर्ता अपडेट करें",
+        "FirstName": "पहला नाम",
+        "LastName": "अंतिम नाम",
+        "LoginId": "लॉगिन आईडी",
+        "Password": "पासवर्ड",
+        "DateOfBirth": "जन्म तिथि",
+        "Gender": "लिंग",
+        "Role": "भूमिका",
+        "Mobile": "मोबाइल",
+        "AlternateMobile": "वैकल्पिक मोबाइल",
+        "Status": "स्थिति",
+        "Placeholders": {
+            "FirstName": "पहला नाम दर्ज करें",
+            "LastName": "अंतिम नाम दर्ज करें",
+            "LoginId": "लॉगिन आईडी दर्ज करें",
+            "Password": "पासवर्ड दर्ज करें",
+            "DateOfBirth": "जन्म तिथि चुनें",
+            "Mobile": "मोबाइल नंबर दर्ज करें",
+            "AlternateMobile": "वैकल्पिक मोबाइल नंबर दर्ज करें"
+        },
+        "SelectOptions": {
+            "Select": "------------चुनें------------",
+            "Male": "पुरुष",
+            "Female": "महिला",
+            "Active": "सक्रिय",
+            "Inactive": "निष्क्रिय"
+        },
+        "Buttons": {
+            "Save": "सहेजें",
+            "List": "सूची"
+        }
+    }
+}

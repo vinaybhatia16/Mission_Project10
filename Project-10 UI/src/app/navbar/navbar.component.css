@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     background: linear-gradient(135deg, #0d2137 0%, #225d83 60%, #237f83 100%);
-    padding: 0 30px;
+    padding: 0 10px;
     min-height: 65px;
     font-family: Arial, sans-serif;
     box-shadow: 0 8px 22px rgba(13, 33, 55, 0.22);
@@ -57,16 +57,180 @@
     white-space: nowrap;
 }
 
-/* Responsive */
+.locale-menu .dropdown-menu {
+    min-width: 180px;
+    margin-top: .5rem;
+    padding: .4rem;
+}
 
-@media (max-width: 900px) {
+.locale-menu .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    border-radius: .35rem;
+    font-size: .85rem;
+}
 
-    .navbar {
-        flex-direction: column;
-        padding: 15px;
-        gap: 15px;
+.locale-menu .dropdown-item.active {
+    background: rgba(77, 157, 224, .22);
+}
+
+.language-code {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 22px;
+    color: #dceeff;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 5px;
+    font-size: .68rem;
+    font-weight: 700;
+}
+
+@media (min-width: 1200px) {
+    .navbar > .container-fluid {
+        width: 100%;
+        max-width: none;
+        padding-right: .5rem !important;
+        padding-left: .5rem !important;
+        flex-wrap: nowrap;
     }
 
+    #mainNav {
+        flex-wrap: nowrap;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .welcome-user {
+        flex: 0 1 105px;
+        min-width: 75px;
+        margin-right: .25rem !important;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .welcome-user div {
+        font-size: .68rem;
+    }
+
+    .welcome-user small {
+        font-size: .6rem;
+    }
+
+    .welcome-user div,
+    .welcome-user small {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #mainNav .navbar-nav {
+        flex: 1 1 auto;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        min-width: 0;
+    }
+
+    #mainNav .nav-link {
+        padding-right: .2rem !important;
+        padding-left: .2rem !important;
+        font-size: .66rem;
+        white-space: nowrap;
+    }
+
+    #mainNav > .dropdown {
+        flex-shrink: 0;
+        margin-left: .2rem !important;
+    }
+
+    #mainNav .locale-menu {
+        flex-shrink: 0;
+        margin-left: .2rem !important;
+    }
+
+    #mainNav .account-button {
+        padding: .2rem .35rem;
+        font-size: .68rem;
+    }
+
+    #mainNav .account-label {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar > .container-fluid {
+        width: 100%;
+        max-width: none;
+        padding-right: .35rem !important;
+        padding-left: .35rem !important;
+        flex-wrap: nowrap;
+    }
+
+    #mainNav,
+    #guestNav {
+        flex-wrap: nowrap;
+        min-width: 0;
+    }
+
+    .welcome-user {
+        flex: 0 1 82px;
+        min-width: 55px;
+        margin-right: .2rem !important;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .welcome-user div,
+    .welcome-user small {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .welcome-user div {
+        font-size: .62rem;
+    }
+
+    .welcome-user small {
+        font-size: .56rem;
+    }
+
+    #mainNav .navbar-nav {
+        flex: 1 1 auto;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        min-width: 0;
+    }
+
+    #mainNav .nav-link {
+        padding-right: .28rem !important;
+        padding-left: .28rem !important;
+        font-size: 0;
+        white-space: nowrap;
+    }
+
+    #mainNav .nav-link .bi {
+        margin-right: 0 !important;
+        font-size: .95rem;
+    }
+
+    #mainNav > .dropdown,
+    #mainNav .locale-menu {
+        flex-shrink: 0;
+        margin-left: .2rem !important;
+    }
+
+    #mainNav .account-button {
+        padding: .2rem .3rem;
+    }
+
+    #mainNav .account-label {
+        display: none;
+    }
+}
+
+@media (max-width: 1199.98px) {
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;

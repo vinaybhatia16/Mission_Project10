@@ -2,38 +2,38 @@
 <div class="container py-4">
    <div class="card shadow border-0 rounded-4 mx-auto" style="max-width: 650px;">
       <div class="card-header text-white text-center rounded-top-4" style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);">
-         <h2 class="mb-0 fw-bold" *ngIf="!form.data.id"><i class="bi bi-building-add me-2"></i>Add College</h2>
-         <h2 class="mb-0 fw-bold" *ngIf="form.data.id > 0"><i class="bi bi-pencil-square me-2"></i>Update College</h2>
+         <h2 class="mb-0 fw-bold" *ngIf="!form.data.id"><i class="bi bi-building-add me-2"></i>{{ 'Forms.Add' | translate:{entity: ('Common.College' | translate)} }}</h2>
+         <h2 class="mb-0 fw-bold" *ngIf="form.data.id > 0"><i class="bi bi-pencil-square me-2"></i>{{ 'Forms.Update' | translate:{entity: ('Common.College' | translate)} }}</h2>
       </div>
       <div class="card-body p-4">
          <div class="alert alert-success text-center" *ngIf="!form.error && form.message"><i class="bi bi-check-circle me-2"></i>{{ form.message }}</div>
          <div class="alert alert-danger text-center" *ngIf="form.error && form.message"><i class="bi bi-exclamation-triangle me-2"></i>{{ form.message }}</div>
          <div class="mb-3">
-            <label class="form-label fw-bold">Name <span class="text-danger">*</span></label>
-            <input type="text" name="name" class="form-control" [(ngModel)]="form.data.name" placeholder="Enter College Name">
+            <label class="form-label fw-bold">{{ 'Common.Name' | translate }} <span class="text-danger">*</span></label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="form.data.name" [placeholder]="'Placeholders.EnterCollegeName' | translate">
             <div class="text-danger small mt-1" *ngIf="form.inputerror.name">{{ form.inputerror.name }}</div>
          </div>
          <div class="mb-3">
-            <label class="form-label fw-bold">Address <span class="text-danger">*</span></label>
-            <input type="text" name="address" class="form-control" [(ngModel)]="form.data.address" placeholder="Enter Address">
+            <label class="form-label fw-bold">{{ 'Common.Address' | translate }} <span class="text-danger">*</span></label>
+            <input type="text" name="address" class="form-control" [(ngModel)]="form.data.address" [placeholder]="'Placeholders.EnterAddress' | translate">
             <div class="text-danger small mt-1" *ngIf="form.inputerror.address">{{ form.inputerror.address }}</div>
          </div>
          <div class="mb-3">
-            <label class="form-label fw-bold">State <span class="text-danger">*</span></label>
-            <input type="text" name="state" class="form-control" [(ngModel)]="form.data.state" placeholder="Enter State">
+            <label class="form-label fw-bold">{{ 'Common.State' | translate }} <span class="text-danger">*</span></label>
+            <input type="text" name="state" class="form-control" [(ngModel)]="form.data.state" [placeholder]="'Placeholders.EnterState' | translate">
             <div class="text-danger small mt-1" *ngIf="form.inputerror.state">{{ form.inputerror.state }}</div>
          </div>
          <div class="mb-3">
-            <label class="form-label fw-bold">City <span class="text-danger">*</span></label>
-            <input type="text" name="city" class="form-control" [(ngModel)]="form.data.city" placeholder="Enter City">
+            <label class="form-label fw-bold">{{ 'Common.City' | translate }} <span class="text-danger">*</span></label>
+            <input type="text" name="city" class="form-control" [(ngModel)]="form.data.city" [placeholder]="'Placeholders.EnterCity' | translate">
             <div class="text-danger small mt-1" *ngIf="form.inputerror.city">{{ form.inputerror.city }}</div>
          </div>
          <div class="mb-4">
-            <label class="form-label fw-bold">Phone No <span class="text-danger">*</span></label>
-            <input type="text" name="phoneNo" class="form-control" [(ngModel)]="form.data.phoneNo" maxlength="10" placeholder="Enter Phone No.">
+            <label class="form-label fw-bold">{{ 'Common.PhoneNo' | translate }} <span class="text-danger">*</span></label>
+            <input type="text" name="phoneNo" class="form-control" [(ngModel)]="form.data.phoneNo" maxlength="10" [placeholder]="'Placeholders.EnterPhone' | translate">
             <div class="text-danger small mt-1" *ngIf="form.inputerror.phoneNo">{{ form.inputerror.phoneNo }}</div>
          </div>
-         <div class="text-center"><button type="button" class="btn btn-primary px-4" (click)="submit()"><i class="bi bi-save me-2"></i>Save</button></div>
+         <div class="text-center"><button type="button" class="btn btn-primary px-4" (click)="submit()"><i class="bi bi-save me-2"></i>{{ 'Buttons.Save' | translate }}</button></div>
       </div>
    </div>
 </div>
