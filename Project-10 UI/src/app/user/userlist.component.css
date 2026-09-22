@@ -1,0 +1,33 @@
+.search-panel {
+	margin-right: 0;
+	margin-left: 0;
+	padding: 1.25rem;
+	background: #202d3d;
+	border: 1px solid #3b5065;
+	border-radius: .5rem;
+}
+
+.search-panel label {
+	display: block;
+	margin-bottom: .4rem;
+	color: #edf4fa;
+}
+
+.search-panel input,
+.search-panel select {
+	max-width: none;
+}
+
+.search-panel input[type="date"] {
+	cursor: pointer;
+}
+
+.search-actions {
+	margin-top: .25rem;
+	padding-top: 1rem;
+	border-top: 1px solid #3b5065;
+}
+
+.search-actions button {
+	min-width: 6.5rem;
+}

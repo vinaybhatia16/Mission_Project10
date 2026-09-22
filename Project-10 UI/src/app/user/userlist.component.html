@@ -8,20 +8,20 @@
     </div>
 
     <div *ngIf="form.list.length > 0">
-        <div class="row g-3 align-items-end mb-4">
-            <div class="col-md-4">
+        <div class="search-panel row g-3 align-items-end mb-4">
+            <div class="col-12 col-md-3">
                 <label for="userFirstName" class="form-label fw-bold">{{ 'Common.FirstName' | translate }}</label>
                 <input id="userFirstName" type="text" name="firstName" class="form-control"
                     [(ngModel)]="form.searchParams.firstName" [placeholder]="'Placeholders.EnterFirstName' | translate">
             </div>
 
-            <div class="col-md-4">
+            <div class="col-12 col-md-3">
                 <label for="userLoginId" class="form-label fw-bold">{{ 'Common.LoginId' | translate }}</label>
                 <input id="userLoginId" type="text" name="loginId" class="form-control"
                     [(ngModel)]="form.searchParams.loginId" [placeholder]="'Placeholders.EnterLoginId' | translate">
             </div>
 
-            <div class="col-md-4">
+            <div class="col-12 col-md-3">
                 <label for="userRoleId" class="form-label fw-bold">{{ 'Common.Role' | translate }}</label>
                 <select id="userRoleId" name="roleId" class="form-select" [(ngModel)]="form.searchParams.roleId">
                     <option [ngValue]="undefined">{{ 'Options.Select' | translate }}</option>
@@ -29,7 +29,16 @@
                 </select>
             </div>
 
-            <div class="col-12 d-flex justify-content-center gap-2">
+            <div class="col-12 col-md-3">
+                <label for="userDob" class="form-label fw-bold">{{ 'Common.DateOfBirth' | translate }}</label>
+                <input id="userDob" type="date" name="dob" class="form-control"
+                    [ngModel]="form.searchParams.dob | date:'yyyy-MM-dd'"
+                    (ngModelChange)="form.searchParams.dob = $event"
+                    (click)="
+                    ($event)">
+            </div>
+
+            <div class="search-actions col-12 d-flex justify-content-center gap-2">
                 <button type="button" class="btn btn-primary" (click)="search()">{{ 'Buttons.Search' | translate }}</button>
                 <button type="button" class="btn btn-outline-secondary" (click)="reset()">{{ 'Buttons.Reset' | translate }}</button>
             </div>
@@ -47,9 +56,9 @@
                 <th>{{ 'Common.LoginId' | translate }}</th>
                 <th>{{ 'Common.DateOfBirth' | translate }}</th>
                 <th>{{ 'Common.Gender' | translate }}</th>
-                <th>{{ 'Common.Role' | translate }}</th>
                 <th>{{ 'Common.Mobile' | translate }}</th>
                 <th>{{ 'Common.Status' | translate }}</th>
+                <th>{{ 'Common.Role' | translate }}</th>
                 <th>{{ 'Buttons.Edit' | translate }}</th>
             </tr>
 
@@ -68,9 +77,9 @@
                 <td>{{m.loginId}}</td>
                 <td>{{m.dob | date : 'dd-MM-yyyy'}}</td>
                 <td>{{m.gender}}</td>
-                <td>{{m.roleName}}</td>
                 <td>{{m.phone}}</td>
                 <td>{{m.status}}</td>
+                <td>{{m.roleName}}</td>
                 <td><a (click)="forward( '/user/' +  m.id)" style="cursor: pointer;">{{ 'Buttons.Edit' | translate }}</a></td>
             </tr>
         </table>

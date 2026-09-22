@@ -13,6 +13,7 @@ import { CollegeListComponent } from './college/collegelist.component';
 import { CourseListComponent } from './course/courselist.component';
 import { FacultyListComponent } from './faculty/facultylist.component';
 import { MarksheetListComponent } from './marksheet/marksheetlist.component';
+import { MarksheetmeritlistComponent } from './marksheet/marksheetmeritlist/marksheetmeritlist.component';
 import { RoleListComponent } from './role/rolelist.component';
 import { StudentListComponent } from './student/studentlist.component';
 import { SubjectListComponent } from './subject/subjectlist.component';
@@ -101,6 +102,14 @@ const routes: Routes = [
   {
     path: 'marksheetlist',
     component: MarksheetListComponent
+  },
+  {
+    path: 'meritmarksheet',
+    component: MarksheetmeritlistComponent
+  },
+  {
+    path: 'marksheetmeritlist',
+    component: MarksheetmeritlistComponent
   },
   {
     path: 'role/:id',

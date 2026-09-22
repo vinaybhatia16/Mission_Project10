@@ -6,11 +6,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery; 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.Root; 	
 
 public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
 
@@ -119,6 +120,15 @@ public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
 		List list = query.getResultList();
 		return list;
 	}
+	
+	public List marksheetMeritList(String hql, UserContext userContext) {
+		Query q = entityManager.createQuery(hql);
+		q.setFirstResult(0);
+		q.setMaxResults(10);
+		List l = q.getResultList();
+		return l;
+	}
+
 
 	public List search(T dto, UserContext userContext) {
 		return search(dto, 0, 0, userContext);

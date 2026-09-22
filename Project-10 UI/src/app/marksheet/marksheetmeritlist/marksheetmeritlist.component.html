@@ -1,0 +1,89 @@
+
+
+<div class="container py-4">
+    <div class="card shadow border-0 rounded-4 mx-auto merit-card">
+        <div class="card-header text-white text-center rounded-top-4 border-0 py-3" style="background: linear-gradient(135deg, #0d2137 0%, #1565c0 100%);">
+            <h2 class="mb-0 fw-bold">
+                <i class="bi bi-trophy-fill me-2"></i>
+                {{ 'Tables.MarksheetList' | translate }}
+            </h2>
+        </div>
+
+        <div class="card-body p-0">
+            <div class="d-flex justify-content-end p-3 bg-light border-bottom">
+                <button type="button" class="btn btn-primary px-4 shadow-sm" (click)="printReport()">
+                    <i class="bi bi-printer-fill me-2"></i>
+                    Print Report
+                </button>
+            </div>
+
+            <div class="p-3">
+                <div class="alert alert-success text-center" *ngIf="!form.error && form.message">
+                    <i class="bi bi-check-circle me-2"></i>{{ form.message }}
+                </div>
+                <div class="alert alert-danger text-center" *ngIf="form.error && form.message">
+                    <i class="bi bi-exclamation-triangle me-2"></i>{{ form.message }}
+                </div>
+            </div>
+
+            <div *ngIf="form.list.length > 0" class="table-responsive px-3 pb-3">
+                <table class="table table-hover align-middle mb-0 border rounded overflow-hidden">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="text-center">{{ 'Common.SNo' | translate }}</th>
+                            <th>{{ 'Common.RollNo' | translate }}</th>
+                            <th>{{ 'Common.Name' | translate }}</th>
+                            <th class="text-center">{{ 'Common.Physics' | translate }}</th>
+                            <th class="text-center">{{ 'Common.Chemistry' | translate }}</th>
+                            <th class="text-center">{{ 'Common.Maths' | translate }}</th>
+                            <th class="text-center">Total</th>
+                            <th class="text-center">Percentage (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let m of form.list; let i = index">
+                            <td class="text-center">
+                                <span *ngIf="i === 0" class="badge bg-warning text-dark fs-6">
+                                    <i class="bi bi-trophy-fill me-1"></i>1
+                                </span>
+                                <span *ngIf="i === 1" class="badge bg-secondary fs-6">2</span>
+                                <span *ngIf="i === 2" class="badge fs-6 text-white" style="background:#cd7f32;">3</span>
+                                <span *ngIf="i > 2" class="fw-semibold">{{ i + 1 }}</span>
+                            </td>
+                            <td class="fw-semibold">{{ m.rollNo }}</td>
+                            <td>{{ m.name }}</td>
+                            <td class="text-center">
+                                <span class="badge bg-primary rounded-pill px-3">{{ m.physics }}</span>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge bg-success rounded-pill px-3">{{ m.chemistry }}</span>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge bg-warning text-dark rounded-pill px-3">{{ m.maths }}</span>
+                            </td>
+                            <td class="text-center fw-bold text-primary">
+                                {{ m.physics + m.maths + m.chemistry }}
+                            </td>
+                            <td class="text-center">
+                                <span *ngIf="m.physics >= 33 && m.chemistry >= 33 && m.maths >= 33" class="fw-bold text-success">
+                                    {{ ((m.physics + m.maths + m.chemistry) * 100 / 300) | number:'2.0-2' }}%
+                                </span>
+                                <span *ngIf="m.physics < 33 || m.chemistry < 33 || m.maths < 33" class="text-danger fw-bold">
+                                    FAIL
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div *ngIf="form.list.length == 0" class="px-3 pb-3">
+                <button type="button" class="btn btn-outline-secondary" (click)="reset()">
+                    <i class="bi bi-arrow-left me-2"></i>{{ 'Buttons.Back' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

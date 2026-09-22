@@ -30,4 +30,17 @@ public class MarksheetCtl extends BaseCtl<MarksheetForm, MarksheetDTO, Marksheet
 		return res;
 	}
 
+	@GetMapping("meritlist")
+	public ORSResponse getMeritList() {
+
+		System.out.println("getMeritList run on ctl");
+
+		List<MarksheetDTO> list = baseService.getMeritList(userContext);
+
+		ORSResponse res = new ORSResponse(true);
+		res.addResult("list", list);
+
+		return res;
+
+}
 }
