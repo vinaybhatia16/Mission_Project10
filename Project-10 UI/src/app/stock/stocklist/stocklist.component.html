@@ -1,0 +1,70 @@
+<main class="container-fluid stock-list-page py-4">
+    <section class="card stock-list-card shadow border-0">
+        <header class="card-header text-white d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <h2 class="stock-list-title mb-0"><i class="bi bi-box-seam me-2"></i>Stock List</h2>
+            <button type="button" class="btn btn-light" (click)="forward('/stock')"><i class="bi bi-plus-lg me-2"></i>New Stock</button>
+        </header>
+
+        <div class="card-body p-4">
+            <div class="alert alert-success" *ngIf="!form.error && form.message"><i class="bi bi-check-circle me-2"></i>{{ form.message }}</div>
+            <div class="alert alert-danger" *ngIf="form.error && form.message"><i class="bi bi-exclamation-triangle me-2"></i>{{ form.message }}</div>
+
+            <div class="row g-3 align-items-end stock-search mb-4">
+                <div class="col-12 col-md-4">
+                    <label for="searchStockId" class="form-label">Stock ID</label>
+                    <input id="searchStockId" type="text" class="form-control" [(ngModel)]="form.searchParams.stockId" placeholder="Search by stock ID">
+                </div>
+                <div class="col-12 col-md-4">
+                    <label for="searchStockName" class="form-label">Stock Name</label>
+                    <input id="searchStockName" type="text" class="form-control" [(ngModel)]="form.searchParams.stockName" placeholder="Search by stock name">
+                </div>
+                <div class="col-6 col-md-2">
+                    <button type="button" class="btn btn-primary w-100" (click)="search()"><i class="bi bi-search me-2"></i>Search</button>
+                </div>
+                <div class="col-6 col-md-2">
+                    <button type="button" class="btn btn-outline-secondary w-100" (click)="reset()"><i class="bi bi-arrow-counterclockwise me-2"></i>Reset</button>
+                </div>
+            </div>
+
+            <div class="table-responsive stock-table-wrap">
+                <table class="table table-hover align-middle stock-table mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col"><label class="d-flex align-items-center gap-2 mb-0"><input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)"><span>Select</span></label></th>
+                            <th scope="col">S.No</th>
+                            <th scope="col">Stock ID</th>
+                            <th scope="col">Stock Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col" class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of form.list; let i = index">
+                            <td><input #checkboxes type="checkbox" (change)="checklistUpdate()" [id]="item.id" [value]="item.id" [attr.aria-label]="'Select stock ' + item.stockName"></td>
+                            <td>{{ (form.pageNo * 5) + i + 1 }}</td>
+                            <td>{{ item.stockId }}</td>
+                            <td class="fw-semibold">{{ item.stockName }}</td>
+                            <td>{{ item.price }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td class="text-end"><button type="button" class="btn btn-sm btn-outline-primary" (click)="forward('/stock/' + item.id)" [attr.aria-label]="'Edit stock ' + item.stockName" title="Edit stock"><i class="bi bi-pencil-square"></i></button></td>
+                        </tr>
+                        <tr *ngIf="form.list.length === 0">
+                            <td colspan="7" class="stock-empty-state"><i class="bi bi-inbox me-2"></i>No stock records found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mt-3 stock-list-actions">
+                <button type="button" class="btn btn-outline-secondary" (click)="previous()" [disabled]="form.pageNo === 0"><i class="bi bi-chevron-left me-2"></i>Previous</button>
+                <span class="stock-page-number">Page {{ form.pageNo + 1 }}</span>
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteMany()"><i class="bi bi-trash me-2"></i>Delete</button>
+                    <button type="button" class="btn btn-outline-secondary" (click)="next()" [disabled]="form.nextListSize === 0">Next<i class="bi bi-chevron-right ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<app-footer></app-footer>

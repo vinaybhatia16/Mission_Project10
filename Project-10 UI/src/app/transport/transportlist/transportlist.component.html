@@ -1,0 +1,140 @@
+<div class="container-fluid" style="background-image: url('assets/img/list.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 50px;
+  padding-bottom: 75px;">
+
+    <!-- TITLE -->
+    <h1 class="text-center text-dark font-weight-bold pt-3">
+        <u>Transport List</u>
+    </h1>
+
+    <!-- SUCCESS -->
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4 alert alert-success text-center" *ngIf="!form.error && form.message">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message}}
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+    <!-- ERROR -->
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4 alert alert-danger text-center" *ngIf="form.error && form.message">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message}}
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="row mt-3">
+
+        <div class="col-sm-3">
+            <input type="text" class="form-control" [(ngModel)]="form.searchParams.vehicleType"
+                placeholder="Vehicle Type">
+        </div>
+
+        <div class="col-sm-3">
+            <input type="text" class="form-control" [(ngModel)]="form.searchParams.driverName"
+                placeholder="Driver Name">
+        </div>
+
+        <div class="col-sm-2">
+            <button (click)="search()" class="btn btn-primary w-100">
+                Search
+            </button>
+        </div>
+
+        <div class="col-sm-2">
+            <button (click)="reset()" class="btn btn-dark w-100">
+                Reset
+            </button>
+        </div>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-responsive mt-4">
+
+        <table class="table table-bordered table-dark table-hover text-center">
+
+            <thead>
+                <tr style="background-color: #8C8C8C;">
+
+                    <th>
+                        <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)">
+                        Select All
+                    </th>
+
+                    <th>S.NO</th>
+                    <th>Vehicle Type</th>
+                    <th>Driver Name</th>
+                    <th>Charges</th>
+                    <th>Edit</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let m of form.list; let i = index">
+
+                    <td>
+                        <input #checkboxes type="checkbox" (change)="checklistUpdate()" [id]="m.id" [value]="m.id">
+                    </td>
+
+                    <td>{{(form.pageNo*5)+i+1}}</td>
+                    <td>{{m.vehicleType}}</td>
+                    <td>{{m.driverName}}</td>
+                    <td>{{m.charges}}</td>
+
+                    <td>
+                        <button class="btn btn-sm btn-primary" (click)="forward('/transport/' + m.id)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="row mt-3 align-items-center">
+
+        <div class="col-md-4">
+            <button class="btn btn-warning" (click)="previous()" [disabled]="form.pageNo == 0">
+                Previous
+            </button>
+        </div>
+
+        <div class="col-md-4 text-center">
+            <button (click)="forward('/transport')" class="btn btn-primary mr-2">
+                New
+            </button>
+
+            <button (click)="deleteMany()" class="btn btn-danger">
+                Delete
+            </button>
+        </div>
+
+        <div class="col-md-4 text-right">
+            <button class="btn btn-warning" (click)="next()" [disabled]="form.nextListSize == 0">
+                Next
+            </button>
+        </div>
+
+    </div>
+
+</div>

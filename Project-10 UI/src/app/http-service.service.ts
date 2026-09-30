@@ -14,32 +14,42 @@ export class HttpServiceService {
   post(endpoint: any, bean: any, callback: any, errorCallback?: any) {
     return this.httpClient.post(endpoint, bean, {withCredentials : true}).subscribe((data) => {
       callback(data);
+      console.log("data ====== ", data)
     }, (error) => {
+      console.log("error code =======>>>>> ", error.status)
       if (errorCallback) {
         errorCallback(error);
-      } else {
-        this.handleError(error);
       }
+        this.handleError(error);
     });
   }
 
   get(endpoint: any, callback: any) {
     return this.httpClient.get(endpoint, {withCredentials : true}).subscribe((data) => {
       callback(data);
+      console.log("data ====== ", data)
     }, (error) => {
+       console.log("error code =======>>>>> ", error.status)
       this.handleError(error);
     });
   }
 
-  private handleError(error: any): void {
-    console.error('Request failed', error);
-    if (error.status === 401) {
-      localStorage.clear();
-      this.router.navigate(['/login'], {
-        queryParams: { errorMessage: error.error.error }
-      });
-    }
+private handleError(error: any): void {
+  console.error('Request failed', error);
+
+  if (error.status === 401) {
+    localStorage.clear();
+    this.router.navigate(['/login'], {
+      queryParams: { errorMessage: error.error.error }
+    });
   }
+
+  if (error.status === 503) {
+    this.router.navigate([this.router.url], {
+      queryParams: { errorMessage: 'database server down' }
+    });
+  }
+}
 
 
   getReport(url: string, token: string) {

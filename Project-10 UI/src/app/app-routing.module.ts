@@ -24,6 +24,10 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './login/signup.component';
 import { ForgotpasswordComponent } from './login/forgotpassword.component';
 import { MyprofileComponent } from './user/myprofile.component';
+import { StockComponent } from './stock/stock.component';
+import { StockListComponent } from './stock/stocklist/stocklist.component';
+import { TransportComponent } from './transport/transport.component';
+import { TransportListComponent } from './transport/transportlist/transportlist.component';
 
 
 
@@ -79,6 +83,30 @@ const routes: Routes = [
   {
     path: 'student',
     component: StudentComponent
+  },
+  {
+    path: 'stock',
+    component: StockComponent
+  },
+  {
+    path: 'stock/:id',
+    component: StockComponent
+  },
+  {
+    path: 'stocklist',
+    component: StockListComponent
+  },
+  {
+    path: 'transport',
+    component: TransportComponent
+  },
+  {
+    path: 'transport/:id',
+    component: TransportComponent
+  },
+  {
+    path: 'transportlist',
+    component: TransportListComponent
   }, {
     path: 'course/:id',
     component: CourseComponent

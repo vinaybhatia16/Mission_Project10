@@ -76,6 +76,19 @@
             <li><a class="dropdown-item" [routerLink]="['/facultylist']"><i class="bi bi-list-ul me-2 text-primary"></i>{{ 'Links.FacultyList' | translate }}</a></li>
           </ul>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white px-3 py-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-calendar-day me-1"></i>Daily Module
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark shadow border-0 rounded-3" style="background:#1a2e4a">
+            <li><a class="dropdown-item" [routerLink]="['/stock']"><i class="bi bi-box-seam me-2 text-success"></i>Stock</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/stocklist']"><i class="bi bi-list-ul me-2 text-primary"></i>Stock List</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" [routerLink]="['/transport']"><i class="bi bi-bus-front me-2 text-success"></i>Transport</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/transportlist']"><i class="bi bi-list-ul me-2 text-primary"></i>Transport List</a></li>
+          </ul>
+        </li>
       </ul>
 
       <div class="dropdown ms-lg-3 mt-3 mt-lg-0">

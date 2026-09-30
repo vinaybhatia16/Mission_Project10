@@ -1,0 +1,101 @@
+<div class="container-fluid"
+    style="background-image: url('assets/img/23964.jpg'); background-size: cover; background-attachment: fixed; min-height: 100vh; padding-top: 70px; padding-bottom: 75px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add Transport
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update Transport
+                    </h3>
+
+                    <!-- SUCCESS MESSAGE -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR MESSAGE -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- VEHICLE TYPE -->
+                        <label><b>Vehicle Type*</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-car"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.vehicleType"
+                                name="vehicleType" placeholder="Enter Vehicle Type">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.vehicleType}}</span>
+                        </div>
+
+
+                        <!-- DRIVER NAME -->
+                        <label><b>Driver Name*</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.driverName" name="driverName"
+                                placeholder="Enter Driver Name">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.driverName}}</span>
+                        </div>
+
+                        <!-- CHARGES -->
+                        <label><b>Charges*</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-money"></i>
+                                </span>
+                            </div>
+                            <input type="number" class="form-control" [(ngModel)]="form.data.charges" name="charges"
+                                placeholder="Enter Charges">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.charges}}</span>
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                {{form.data.id ? 'Update' : 'Save'}}
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" [routerLink]="['/transportlist']">
+                                List
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+                                Reset
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

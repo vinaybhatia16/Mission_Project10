@@ -38,6 +38,10 @@ import { MyprofileComponent } from './user/myprofile.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MarksheetmeritlistComponent } from './marksheet/marksheetmeritlist/marksheetmeritlist.component';
+import { StockComponent } from './stock/stock.component';
+import { StockListComponent } from './stock/stocklist/stocklist.component';
+import { TransportComponent } from './transport/transport.component';
+import { TransportListComponent } from './transport/transportlist/transportlist.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -72,7 +76,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     SignupComponent,
     ForgotpasswordComponent,
     MyprofileComponent,
-    MarksheetmeritlistComponent
+    MarksheetmeritlistComponent,
+    StockComponent,
+    StockListComponent,
+    TransportComponent,
+    TransportListComponent
   ],
   imports: [
     BrowserModule,

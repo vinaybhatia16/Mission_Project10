@@ -1,0 +1,61 @@
+:host {
+	display: block;
+}
+
+.stock-page {
+	min-height: calc(100vh - 58px);
+}
+
+.stock-form-card {
+	width: 100%;
+	max-width: 720px;
+	overflow: hidden;
+	border: 1px solid var(--ors-border) !important;
+	border-radius: 8px;
+	background: var(--ors-surface);
+}
+
+.stock-form-card .card-header {
+	padding: 1rem 1.5rem;
+	background: var(--ors-gradient);
+}
+
+.stock-form-card .card-body {
+	background: var(--ors-surface);
+}
+
+.stock-form-card .form-label {
+	color: var(--ors-ink);
+}
+
+.stock-form-card .input-group-text {
+	color: #aebdcc;
+	background: #263646;
+	border-color: #526273;
+}
+
+.stock-form-card .form-control {
+	min-height: 44px;
+	color: var(--ors-ink);
+	background: #131e29;
+	border-color: #526273;
+}
+
+.stock-form-card .form-control:focus {
+	border-color: var(--ors-blue-soft);
+	box-shadow: 0 0 0 .2rem rgba(77, 157, 224, .2);
+}
+
+.stock-form-card .text-danger.small {
+	min-height: 1.25rem;
+}
+
+@media (max-width: 575.98px) {
+	.stock-page {
+		padding: 1rem .75rem !important;
+	}
+
+	.stock-form-card .card-body {
+		padding: 1.25rem !important;
+	}
+}

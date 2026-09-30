@@ -74,19 +74,27 @@ export class BaseCtl implements OnInit {
     submit() {
         var _self = this;
         this.serviceLocator.httpService.post(this.api.save, this.form.data, function (res: any) {
+            const response = res || {};
+            const result = response.result || response;
+
             _self.form.message = '';
             _self.form.inputerror = {};
-            if (res.success) {
+            if (response.success) {
                 _self.form.error = false;
-                _self.form.message = res.result.message;
-                _self.form.data.id = res.result.data;
+                _self.form.message = result.message || response.message || '';
+                _self.form.data.id = result.data;
             } else {
                 _self.form.error = true;
-                if (res.result.inputerror) {
-                    _self.form.inputerror = res.result.inputerror;
-                }
-                _self.form.message = res.result.message;
+                _self.form.inputerror = result.inputerror || result.inputError || result.errors || {};
+                _self.form.message = result.message || response.message || response.error || 'Unable to save record.';
             }
+        }, function (error: any) {
+            const errorBody = error?.error || {};
+            const result = errorBody.result || {};
+
+            _self.form.error = true;
+            _self.form.inputerror = result.inputerror || result.inputError || errorBody.inputerror || errorBody.inputError || result.errors || errorBody.errors || {};
+            _self.form.message = result.message || errorBody.message || errorBody.error || 'Unable to save record.';
         });
     }
     search() {

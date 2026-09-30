@@ -1,0 +1,122 @@
+:host {
+	display: block;
+}
+
+.stock-list-page {
+	max-width: 1480px;
+	min-height: calc(100vh - 58px);
+	margin: 0 auto;
+}
+
+.stock-list-card {
+	overflow: hidden;
+	border: 1px solid var(--ors-border) !important;
+	border-radius: 8px;
+	background: var(--ors-surface);
+}
+
+.stock-list-card .card-header {
+	padding: 1rem 1.5rem;
+	background: var(--ors-gradient);
+}
+
+.stock-list-card .card-body {
+	background: var(--ors-surface);
+}
+
+.stock-list-title {
+	color: inherit;
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.stock-search .form-label {
+	margin-bottom: .4rem;
+	color: var(--ors-ink);
+	font-weight: 600;
+}
+
+.stock-search .form-control {
+	min-height: 42px;
+	color: var(--ors-ink);
+	background: #131e29;
+	border-color: #526273;
+}
+
+.stock-search .form-control:focus {
+	border-color: var(--ors-blue-soft);
+	box-shadow: 0 0 0 .2rem rgba(77, 157, 224, .2);
+}
+
+.stock-search .btn {
+	min-height: 42px;
+}
+
+.stock-table-wrap {
+	overflow: hidden;
+	border: 1px solid var(--ors-border);
+	border-radius: .5rem;
+}
+
+.stock-table {
+	--bs-table-color: var(--ors-ink);
+	--bs-table-bg: var(--ors-panel);
+	--bs-table-border-color: var(--ors-border);
+	--bs-table-hover-color: var(--ors-ink);
+	--bs-table-hover-bg: rgba(77, 157, 224, .08);
+	min-width: 720px;
+}
+
+.stock-table thead th {
+	padding: .9rem .75rem;
+	color: var(--ors-ink);
+	background: #263646;
+	font-size: .875rem;
+	white-space: nowrap;
+}
+
+.stock-table tbody td {
+	padding: .8rem .75rem;
+	vertical-align: middle;
+}
+
+.stock-table input[type="checkbox"] {
+	width: 1rem;
+	height: 1rem;
+	accent-color: var(--ors-blue-soft);
+}
+
+.stock-empty-state {
+	height: 110px;
+	color: #aebdcc;
+	text-align: center;
+}
+
+.stock-page-number {
+	color: #aebdcc;
+	font-size: .9rem;
+}
+
+@media (max-width: 575.98px) {
+	.stock-list-page {
+		padding: 1rem .75rem !important;
+	}
+
+	.stock-list-title {
+		font-size: 1.25rem;
+	}
+
+	.stock-list-card .card-header,
+	.stock-list-card .card-body {
+		padding: 1rem !important;
+	}
+
+	.stock-list-actions {
+		align-items: stretch !important;
+	}
+
+	.stock-list-actions > button,
+	.stock-list-actions > div {
+		flex: 1 1 auto;
+	}
+}

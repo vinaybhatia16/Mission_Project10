@@ -1,0 +1,60 @@
+<div class="container py-4 stock-page">
+    <section class="card stock-form-card shadow border-0 mx-auto">
+        <header class="card-header text-white">
+            <h2 class="mb-0 fw-bold" *ngIf="!form.data.id"><i class="bi bi-box-seam me-2"></i>Add Stock Record</h2>
+            <h2 class="mb-0 fw-bold" *ngIf="form.data.id"><i class="bi bi-pencil-square me-2"></i>Update Stock Record</h2>
+        </header>
+
+        <div class="card-body p-4">
+            <div class="alert alert-success" *ngIf="!form.error && form.message"><i class="bi bi-check-circle me-2"></i>{{ form.message }}</div>
+            <div class="alert alert-danger" *ngIf="form.error && form.message"><i class="bi bi-exclamation-triangle me-2"></i>{{ form.message }}</div>
+
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="stockId" class="form-label fw-semibold">Stock ID <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-upc-scan"></i></span>
+                            <input id="stockId" type="text" class="form-control" [(ngModel)]="form.data.stockId" name="stockId" placeholder="Enter Stock ID">
+                        </div>
+                        <div class="text-danger small mt-1">{{ form.inputerror.stockId }}</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="stockName" class="form-label fw-semibold">Stock Name <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-box"></i></span>
+                            <input id="stockName" type="text" class="form-control" [(ngModel)]="form.data.stockName" name="stockName" placeholder="Enter Stock Name">
+                        </div>
+                        <div class="text-danger small mt-1">{{ form.inputerror.stockName }}</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="price" class="form-label fw-semibold">Price <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-currency-rupee"></i></span>
+                            <input id="price" type="number" class="form-control" [(ngModel)]="form.data.price" name="price" placeholder="Enter Price">
+                        </div>
+                        <div class="text-danger small mt-1">{{ form.inputerror.price }}</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="quantity" class="form-label fw-semibold">Quantity <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-123"></i></span>
+                            <input id="quantity" type="number" class="form-control" [(ngModel)]="form.data.quantity" name="quantity" placeholder="Enter Quantity">
+                        </div>
+                        <div class="text-danger small mt-1">{{ form.inputerror.quantity }}</div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-wrap justify-content-end gap-2 mt-4">
+                    <button type="button" class="btn btn-success" (click)="submit()"><i class="bi bi-save me-2"></i>{{ form.data.id ? 'Update' : 'Save' }}</button>
+                    <button *ngIf="form.data.id" class="btn btn-outline-secondary" [routerLink]="['/stocklist']"><i class="bi bi-list-ul me-2"></i>List</button>
+                    <button *ngIf="!form.data.id" type="button" class="btn btn-outline-secondary" (click)="reset()"><i class="bi bi-arrow-counterclockwise me-2"></i>Reset</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+<app-footer></app-footer>
